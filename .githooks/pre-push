@@ -1,0 +1,10 @@
+#!/bin/sh
+# Same checks as CI (offline part) before pushing, so a broken site never reaches the deploy.
+# Skip once with: git push --no-verify
+# The template repo itself is all {{placeholders}}; checks run in pages made from it.
+grep -q '{{BRAND}}' src/index.html 2>/dev/null && exit 0
+node tools/verify.mjs --quick || {
+  echo ""
+  echo "Push stopped: the site would fail CI. Fix the errors above (or ask Claude to)."
+  exit 1
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{PAGE_TITLE}} | {{BRAND}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <link rel="canonical" href="{{SITE_URL}}/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="{{THEME_COLOR}}">
+  <!-- site-verification: the publish skill adds google-site-verification / msvalidate.01 meta tags here -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="{{PAGE_TITLE}}">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:url" content="{{SITE_URL}}/">
+  <meta property="og:image" content="{{SITE_URL}}/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{BRAND}}: {{H1_HEADLINE}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{PAGE_TITLE}}">
+  <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{SITE_URL}}/og.png">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="{{BRAND}} blog" href="blog/feed.xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- analytics: the new-landing skill inserts the snippet chosen in the brief here -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{SITE_URL}}/#organization",
+        "name": "{{BRAND}}",
+        "url": "{{SITE_URL}}/",
+        "logo": "{{SITE_URL}}/icon-512.png",
+        "description": "{{META_DESCRIPTION}}",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{SITE_URL}}/#website",
+        "name": "{{BRAND}}",
+        "url": "{{SITE_URL}}/",
+        "inLanguage": "{{LANG}}",
+        "publisher": { "@id": "{{SITE_URL}}/#organization" }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Question one?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Answer one." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="./">{{BRAND}}</a>
+    <nav aria-label="Main">
+      <a href="#benefits">Benefits</a>
+      <a href="#proof">Proof</a>
+      <a href="#faq">FAQ</a>
+      <a href="blog/">Blog</a>
+      <a class="btn btn-small" href="#contact">{{CTA_LABEL}}</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <h1>{{H1_HEADLINE}}</h1>
+      <p class="lead">{{SUBHEADLINE}}</p>
+      <a class="btn" href="#contact">{{CTA_LABEL}}</a>
+    </section>
+
+    <section id="benefits" class="section">
+      <h2>Why {{BRAND}}</h2>
+      <div class="grid">
+        <article class="card"><h3>Benefit one</h3><p>Describe the outcome, not the feature.</p></article>
+        <article class="card"><h3>Benefit two</h3><p>Describe the outcome, not the feature.</p></article>
+        <article class="card"><h3>Benefit three</h3><p>Describe the outcome, not the feature.</p></article>
+      </div>
+    </section>
+
+    <section id="proof" class="section">
+      <h2>What people say</h2>
+      <blockquote>“Replace with a real testimonial.” <cite>Name, Role</cite></blockquote>
+    </section>
+
+    <!-- Every <summary> here must match a Question "name" in the FAQPage JSON-LD above (tools/check.mjs enforces it). -->
+    <section id="faq" class="section">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>Question one?</summary>
+        <p>Answer one.</p>
+      </details>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>{{CTA_LABEL}}</h2>
+      <form id="lead-form" action="{{FORM_ENDPOINT}}" method="post"
+            data-msg-sending="Sending…"
+            data-msg-success="Thanks! We will be in touch."
+            data-msg-error="Something went wrong. Please try again.">
+        <label>Email <input type="email" name="email" required autocomplete="email"></label>
+        <!-- honeypot: real visitors never see or fill this; bots do -->
+        <label class="hp" aria-hidden="true">Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        <button class="btn" type="submit">{{CTA_LABEL}}</button>
+        <p class="form-note">We only use your email to reply. See the <a href="privacy.html">privacy policy</a>.</p>
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> {{BRAND}} · <a href="privacy.html">Privacy</a> · <a href="blog/">Blog</a></p>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/webmcp.js" defer></script>
+</body>
+</html>

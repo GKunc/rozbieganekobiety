@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node tools/check.mjs:*)",
+      "Bash(node tools/build.mjs:*)",
+      "Bash(node tools/verify.mjs:*)",
+      "Bash(node tools/doctor.mjs:*)",
+      "Bash(node tools/make-assets.mjs:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(gh auth status:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh run watch:*)",
+      "Bash(gh repo view:*)",
+      "Bash(curl -sI:*)",
+      "Bash(curl -s -o /dev/null:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && node tools/doctor.mjs --quiet || true",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "taste-skill@taste-skill": true,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true
+  }
+}

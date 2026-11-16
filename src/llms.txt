@@ -1,0 +1,14 @@
+# {{BRAND}}
+
+> {{META_DESCRIPTION}}
+
+{{LLMS_SUMMARY}}
+
+## Pages
+
+- [Home]({{SITE_URL}}/): {{PAGE_TITLE}}
+- [Privacy policy]({{SITE_URL}}/privacy.html): how personal data is handled
+
+## Blog
+
+- [All articles]({{SITE_URL}}/blog/): index of every post
