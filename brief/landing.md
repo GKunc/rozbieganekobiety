@@ -16,7 +16,7 @@ live in `site.config.json`, not here: the build puts them into every page. This 
 ## Hosting
 - REPO_NAME: rozbieganekobiety
 - REPO_OWNER: GKunc
-- CUSTOM_DOMAIN: rozbieganekobiety.pl (still WordPress at OVH; DNS at OVH, email MX at OVH stays untouched). Test URL until the switch: https://gkunc.github.io/rozbieganekobiety
+- CUSTOM_DOMAIN: rozbieganekobiety.pl (GitHub Pages; DNS at OVH: A/AAAA to GitHub Pages, www CNAME to gkunc.github.io; email MX at OVH stays untouched)
 
 ## Business
 - What is offered:
