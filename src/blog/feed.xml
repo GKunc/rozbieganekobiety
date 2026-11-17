@@ -6,13 +6,6 @@
     <atom:link href="{{SITE_URL}}/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>{{BLOG_DESCRIPTION}}</description>
     <language>{{LANG}}</language>
-    <!-- The blog-post skill adds one <item> per post, newest first:
-    <item>
-      <title>Post title</title>
-      <link>{{SITE_URL}}/blog/slug.html</link>
-      <guid>{{SITE_URL}}/blog/slug.html</guid>
-      <pubDate>RFC 822 date, e.g. Mon, 16 Nov 2026 09:00:00 GMT</pubDate>
-      <description>Post description</description>
-    </item> -->
+    <!-- @posts -->
   </channel>
 </rss>

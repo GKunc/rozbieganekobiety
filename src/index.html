@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{LANG}}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- @include head -->
   <title>{{PAGE_TITLE}} | {{BRAND}}</title>
   <meta name="description" content="{{META_DESCRIPTION}}">
-  <link rel="canonical" href="{{SITE_URL}}/">
+  <link rel="canonical" href="{{PAGE_URL}}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="{{THEME_COLOR}}">
-  <!-- site-verification: the publish skill adds google-site-verification / msvalidate.01 meta tags here -->
+  <!-- @if GOOGLE_SITE_VERIFICATION -->
+  <meta name="google-site-verification" content="{{GOOGLE_SITE_VERIFICATION}}">
+  <!-- @endif -->
+  <!-- @if BING_SITE_VERIFICATION -->
+  <meta name="msvalidate.01" content="{{BING_SITE_VERIFICATION}}">
+  <!-- @endif -->
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{BRAND}}">
   <meta property="og:locale" content="{{LOCALE}}">
   <meta property="og:title" content="{{PAGE_TITLE}}">
   <meta property="og:description" content="{{META_DESCRIPTION}}">
-  <meta property="og:url" content="{{SITE_URL}}/">
+  <meta property="og:url" content="{{PAGE_URL}}">
   <meta property="og:image" content="{{SITE_URL}}/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -25,13 +27,6 @@
   <meta name="twitter:title" content="{{PAGE_TITLE}}">
   <meta name="twitter:description" content="{{META_DESCRIPTION}}">
   <meta name="twitter:image" content="{{SITE_URL}}/og.png">
-
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="alternate" type="application/rss+xml" title="{{BRAND}} blog" href="blog/feed.xml">
-  <link rel="stylesheet" href="css/styles.css">
-  <!-- analytics: the new-landing skill inserts the snippet chosen in the brief here -->
 
   <script type="application/ld+json">
   {
@@ -72,17 +67,7 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a class="brand" href="./">{{BRAND}}</a>
-    <nav aria-label="Main">
-      <a href="#benefits">Benefits</a>
-      <a href="#proof">Proof</a>
-      <a href="#faq">FAQ</a>
-      <a href="blog/">Blog</a>
-      <a class="btn btn-small" href="#contact">{{CTA_LABEL}}</a>
-    </nav>
-  </header>
+  <!-- @include header -->
 
   <main id="main">
     <section class="hero">
@@ -120,7 +105,19 @@
             data-msg-sending="Sending…"
             data-msg-success="Thanks! We will be in touch."
             data-msg-error="Something went wrong. Please try again.">
+        <!-- Fields: remove name/message if the brief wants a one-field form. Sending is tested with node tools/form-test.mjs. -->
+        <label>Name <input type="text" name="name" autocomplete="name"></label>
         <label>Email <input type="email" name="email" required autocomplete="email"></label>
+        <label class="full">Message <textarea name="message" rows="4"></textarea></label>
+        <input type="hidden" name="_subject" value="New enquiry from the {{BRAND}} website">
+        <input type="hidden" name="page" value="{{PAGE_URL}}">
+        <!-- @if TURNSTILE_SITE_KEY -->
+        <!-- Anti-bot check (Cloudflare Turnstile): loaded on first use of the form, usually invisible. -->
+        <div class="turnstile" data-turnstile="{{TURNSTILE_SITE_KEY}}"></div>
+        <!-- @endif -->
+        <!-- @if FORM_ACCESS_KEY -->
+        <input type="hidden" name="access_key" value="{{FORM_ACCESS_KEY}}">
+        <!-- @endif -->
         <!-- honeypot: real visitors never see or fill this; bots do -->
         <label class="hp" aria-hidden="true">Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
         <button class="btn" type="submit">{{CTA_LABEL}}</button>
@@ -130,11 +127,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; <span id="year">2026</span> {{BRAND}} · <a href="privacy.html">Privacy</a> · <a href="blog/">Blog</a></p>
-  </footer>
-
-  <script src="js/main.js" defer></script>
+  <!-- @include footer -->
   <script src="js/webmcp.js" defer></script>
 </body>
 </html>

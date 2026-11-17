@@ -26,23 +26,10 @@ jobs:
         with:
           node-version: 22
 
-      - name: Release checks (placeholders, filler copy, meta, JSON-LD, sitemap, assets)
-        run: node tools/check.mjs
-
-      - name: Build _site (drop authoring files, add sitemap lastmod)
-        run: node tools/build.mjs
-
-      - name: HTML validation
-        run: npx --yes html-validate@11.21.1 "_site/**/*.html"
-
-      - name: Internal links
-        uses: lycheeverse/lychee-action@v2
-        with:
-          args: --offline --no-progress --root-dir "${{ github.workspace }}/_site" "_site/**/*.html"
-          fail: true
-
-      - name: Lighthouse (performance, accessibility, SEO, best practices)
-        run: npx --yes @lhci/cli@0.16.1 autorun
+      # One command, the same one people run locally: build, release checks, HTML validation,
+      # internal links and Lighthouse budgets. Tool versions are pinned in tools/lib.mjs.
+      - name: Verify (node tools/verify.mjs --lighthouse)
+        run: node tools/verify.mjs --lighthouse
 
       - name: Keep Lighthouse report
         if: always()
@@ -58,6 +45,17 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+
+  selftest:
+    # Only in the template repo: fill a copy with tools/fixture and run the real tools on it.
+    if: ${{ github.event.repository.is_template }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tools/selftest.mjs --lighthouse
 
   deploy:
     needs: build

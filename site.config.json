@@ -1,0 +1,37 @@
+{
+  "BRAND": "",
+  "BRAND_INITIAL": "",
+  "THEME_COLOR": "",
+  "LANG": "",
+  "LOCALE": "",
+  "LEGAL_ENTITY": "",
+  "CONTACT_EMAIL": "",
+
+  "SITE_URL": "",
+  "INDEXNOW_KEY": "",
+
+  "PAGE_TITLE": "",
+  "H1_HEADLINE": "",
+  "SUBHEADLINE": "",
+  "META_DESCRIPTION": "",
+  "CTA_LABEL": "",
+  "LLMS_SUMMARY": "",
+
+  "BLOG_TITLE": "",
+  "BLOG_DESCRIPTION": "",
+  "AUTHOR_NAME": "",
+  "AUTHOR_URL": "",
+
+  "FORM_ENDPOINT": "",
+  "FORM_PROVIDER": "",
+  "FORM_ACCESS_KEY": "",
+  "EMAIL_FROM": "",
+  "FORM_NOTIFY_TO": "",
+  "TURNSTILE_SITE_KEY": "",
+  "ANALYTICS": "none",
+  "ANALYTICS_ID": "",
+  "PRIVACY_UPDATED": "",
+
+  "GOOGLE_SITE_VERIFICATION": "",
+  "BING_SITE_VERIFICATION": ""
+}

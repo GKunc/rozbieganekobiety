@@ -8,7 +8,8 @@ import { spawnSync } from 'node:child_process';
 import { chmodSync, existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { delimiter, isAbsolute, join } from 'node:path';
 import { createConnection } from 'node:net';
-import { ROOT } from './lib.mjs';
+import { homedir } from 'node:os';
+import { ROOT, CONFIG, HTML_VALIDATE, loadConfig, isConfigured } from './lib.mjs';
 
 const args = new Set(process.argv.slice(2));
 const FIX = args.has('--fix');
@@ -94,6 +95,22 @@ if (git) {
   }
 }
 
+try {
+  const config = loadConfig();
+  if (isConfigured(config)) ok('site config', `site.config.json (${config.BRAND})`);
+  else if (!QUIET) warn('site config', 'site.config.json is still empty (this is the untouched template)', 'run the new-landing skill');
+} catch (e) {
+  fail('site config', e.message, `fix ${CONFIG}`);
+}
+
+const googleKey = process.env.GOOGLE_SERVICE_ACCOUNT || join(homedir(), '.config/landing-tools/google-service-account.json');
+if (existsSync(googleKey)) ok('Google automation', 'service account key found (Search Console / GA4 set-up)');
+else if (!QUIET) ok('Google automation', 'not set up (optional; publish skill, "Google, one-time set-up")');
+
+const formSecrets = process.env.FORM_SECRETS || join(homedir(), '.config/landing-tools/form-secrets.json');
+if (existsSync(formSecrets)) ok('Form emails', 'Resend and Turnstile keys found (form worker)');
+else if (!QUIET) ok('Form emails', 'not set up (optional; publish skill, "Contact form emails, one-time set-up")');
+
 if (existsSync(join(ROOT, 'brief/landing.md'))) ok('brief', 'brief/landing.md');
 else fail('brief', 'brief/landing.md is missing', 'restore it from git or the template');
 
@@ -126,7 +143,7 @@ else warn('Claude settings', '.claude/settings.json missing (permissions, sessio
 
 // ── Pre-download CI tools so the first local run is fast ─────────────────
 if (FIX && which('npx')) {
-  const v = sh('npx', ['--yes', 'html-validate@11.21.1', '--version'], { timeout: 180000 });
+  const v = sh('npx', ['--yes', HTML_VALIDATE, '--version'], { timeout: 180000 });
   if (v.ok) fixed('HTML validator', `cached (${v.out})`);
   else warn('HTML validator', 'could not download (offline?)', 'node tools/doctor.mjs --fix');
 }

@@ -10,12 +10,12 @@ The person is not technical. Do the work yourself, explain in one plain sentence
 What the finished environment gives them:
 | Piece | What it does |
 | --- | --- |
-| `tools/serve.mjs` (preview "site") | Local copy of the site at http://localhost:4321/, reloads by itself on every save |
-| `tools/verify.mjs` | Runs the CI checks locally: release checks, build, HTML validation, internal links, optional Lighthouse |
+| `tools/serve.mjs` (preview "site") | Local copy of the site at http://localhost:4321/, rebuilt and reloaded on every save |
+| `tools/verify.mjs` | The exact command CI runs: build, release checks, HTML validation, internal links, optional Lighthouse |
 | `.githooks/` | pre-commit: `check.mjs` when `src/` changes; pre-push: `verify.mjs --quick`. Broken pages never reach the deploy |
 | `tools/doctor.mjs` | Diagnoses the machine; `--fix` repairs what it safely can. Runs quietly at every session start (`.claude/settings.json` hook) |
 | `.mcp.json` | Chrome DevTools MCP for console, screenshots, 375px/desktop, light/dark checks |
-| `.claude/settings.json` | Pre-approved safe commands (checks, git status, deploy status) so there are fewer permission prompts |
+| `.claude/settings.json` | Pre-approved safe commands, plus hooks: the site is rebuilt after each edit and verified before Claude finishes (`tools/hook.mjs`) |
 
 ## 1. Diagnose
 Run `node tools/doctor.mjs`. Every ✘/! line has a `→` fix. Work through them in the order below; re-run doctor after each group.

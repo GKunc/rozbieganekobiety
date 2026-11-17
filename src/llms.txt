@@ -9,6 +9,9 @@
 - [Home]({{SITE_URL}}/): {{PAGE_TITLE}}
 - [Privacy policy]({{SITE_URL}}/privacy.html): how personal data is handled
 
+<!-- @if HAS_POSTS -->
 ## Blog
 
 - [All articles]({{SITE_URL}}/blog/): index of every post
+<!-- @posts -->
+<!-- @endif -->

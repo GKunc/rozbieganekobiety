@@ -1,0 +1,23 @@
+  <footer class="site-footer">
+    <p>
+      &copy; <span id="year">{{YEAR}}</span> {{BRAND}} · <a href="{{ROOT}}privacy.html">Privacy</a>
+      <!-- @if ANALYTICS=ga4 -->
+      · <button type="button" class="linklike" data-consent-open>Cookie settings</button>
+      <!-- @endif -->
+      <!-- @if HAS_POSTS -->
+      · <a href="{{ROOT}}blog/">Blog</a> · <a href="{{ROOT}}blog/feed.xml">RSS</a>
+      <!-- @endif -->
+    </p>
+  </footer>
+  <!-- @if ANALYTICS=ga4 -->
+  <!-- Cookie consent for Google Analytics (Consent Mode v2, nothing loads before "Accept"). Translate with the page. -->
+  <section id="consent" class="consent" aria-label="Cookie consent" data-ga="{{ANALYTICS_ID}}" hidden>
+    <p>We would like to use Google Analytics cookies to understand how visitors use this site. They are set only if you accept. <a href="{{ROOT}}privacy.html">Privacy policy</a></p>
+    <div class="consent-actions">
+      <button type="button" class="btn" data-consent="granted">Accept</button>
+      <button type="button" class="btn" data-consent="denied">Reject</button>
+    </div>
+  </section>
+  <script src="{{ROOT}}js/consent.js" defer></script>
+  <!-- @endif -->
+  <script src="{{ROOT}}js/main.js" defer></script>

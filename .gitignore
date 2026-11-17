@@ -3,3 +3,7 @@ node_modules/
 _site/
 .lighthouseci/
 .claude/settings.local.json
+.preview/
+*service-account*.json
+.worker/
+.worker-test/

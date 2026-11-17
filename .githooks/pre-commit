@@ -1,9 +1,8 @@
 #!/bin/sh
 # Release checks before each commit that touches the site. Skip once with: git commit --no-verify
-# The template repo itself is all {{placeholders}}; checks run in pages made from it.
-grep -q '{{BRAND}}' src/index.html 2>/dev/null && exit 0
-git diff --cached --name-only | grep -q '^src/' || exit 0
-node tools/check.mjs || {
+# Does nothing in the untouched template (BRAND empty in site.config.json).
+git diff --cached --name-only | grep -qE '^(src/|emails/|worker/|site\.config\.json$)' || exit 0
+node tools/check.mjs --if-configured || {
   echo ""
   echo "Commit stopped: fix the errors above (or ask Claude to). Details: node tools/check.mjs"
   exit 1

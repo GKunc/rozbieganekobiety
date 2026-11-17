@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{LANG}}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 404.html is served at any missing path, so on this page {{ROOT}} is the absolute site URL. -->
+  <!-- @include head -->
   <title>Page not found | {{BRAND}}</title>
   <meta name="description" content="This page does not exist. Go back to the {{BRAND}} home page.">
   <meta name="robots" content="noindex">
-  <meta name="color-scheme" content="light dark">
-  <!-- 404.html is served at any missing path, so every URL here is absolute. -->
-  <link rel="icon" href="{{SITE_URL}}/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="{{SITE_URL}}/css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="{{SITE_URL}}/">{{BRAND}}</a>
-  </header>
+  <!-- @include header -->
   <main id="main" class="section hero">
     <h1>Page not found</h1>
     <p class="lead">The page you are looking for does not exist or has moved.</p>
-    <a class="btn" href="{{SITE_URL}}/">Go to the home page</a>
-    <p><a href="{{SITE_URL}}/blog/">Browse the blog</a></p>
+    <a class="btn" href="{{ROOT}}">Go to the home page</a>
   </main>
+  <!-- @include footer -->
 </body>
 </html>
