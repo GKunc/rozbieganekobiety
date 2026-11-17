@@ -100,7 +100,7 @@ withConfig({});
   const tpl = join(tmp, '.tpl-repo');
   const site = join(tmp, '.site-repo');
   const g = (cwd, ...a) => spawnSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@t.t', ...a], { cwd, encoding: 'utf8' });
-  for (const d of [tpl, site]) { rmSync(d, { recursive: true, force: true }); cpSync(ROOT, d, { recursive: true, filter: (p) => !SKIP.has(p.slice(ROOT.length + 1).split(/[\\/]/)[0]) && !p.includes('.tpl-repo') }); g(d, 'init', '-q'); }
+  for (const d of [tpl, site]) { rmSync(d, { recursive: true, force: true }); cpSync(ROOT, d, { recursive: true, filter: (p) => !SKIP.has(p.slice(ROOT.length + 1).split(/[\\/]/)[0]) && !p.includes('.tpl-repo') }); g(d, 'init', '-q', '-b', 'main'); }
   g(tpl, 'add', '-A'); g(tpl, 'commit', '-qm', 'v1');
   const v1 = g(tpl, 'rev-parse', 'HEAD').stdout.trim();
   // The site: filled config and its own headline; template v2: tool change, CSS change, new config key.
