@@ -283,9 +283,9 @@ button[disabled] { opacity: .6; cursor: progress; }
 main.section > article p, main.section > article li { color: var(--muted); }
 main.section > article strong { color: var(--text); }
 .post-photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin: 2rem 0; }
-.post-photos img { display: block; width: 100%; height: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; background: var(--card); }
+.post-photos img { display: block; width: 100%; height: auto; border-radius: 14px; background: var(--card); }
+.post-photos:not(.one) img { height: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
 .post-photos.one { grid-template-columns: 1fr; }
-.post-photos.one img { aspect-ratio: auto; height: auto; }
 .facts { list-style: none; padding: 1.25rem 1.5rem; margin: 1.5rem 0; background: var(--card); border-radius: var(--radius); display: grid; gap: .4rem; }
 .page-hero-flush { padding: 0; }
 .h3-like { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 800; letter-spacing: -.03em; margin-top: .5rem; }
