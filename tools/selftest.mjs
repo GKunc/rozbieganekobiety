@@ -114,7 +114,7 @@ withConfig({});
   writeFileSync(join(tpl, 'site.config.json'), readFileSync(join(tpl, 'site.config.json'), 'utf8').replace(/\n}\s*$/, ',\n  "NEW_SETTING": ""\n}\n'));
   g(tpl, 'add', '-A'); g(tpl, 'commit', '-qm', 'v2');
   const v2 = g(tpl, 'rev-parse', 'HEAD').stdout.trim();
-  await runAsync('Template update applies v2 to a site made from v1', 'tools/template-update.mjs', ['--dir', site, '--commit'], { env: { TEMPLATE_URL: tpl, ALLOW_FILLER: '1' } });
+  await runAsync('Template update applies v2 to a site made from v1', 'tools/template-update.mjs', ['--dir', site, '--commit'], { env: { TEMPLATE_URL: tpl, ALLOW_FILLER: '1', GIT_AUTHOR_NAME: 'selftest', GIT_AUTHOR_EMAIL: 'selftest@example.com', GIT_COMMITTER_NAME: 'selftest', GIT_COMMITTER_EMAIL: 'selftest@example.com' } });
   const ok = readFileSync(join(site, 'tools/lib.mjs'), 'utf8').includes('template v2')
     && readFileSync(join(site, 'src/css/styles.css'), 'utf8').includes('template v2')
     && readFileSync(join(site, 'src/index.html'), 'utf8').includes('data-site="own"')
