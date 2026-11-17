@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>Kontakt – zapisz się na treningi biegowe | {{BRAND}}</title>
+  <meta name="description" content="Zapisz się do grupy biegowej dla kobiet w Krakowie albo na treningi indywidualne. Telefon +48 570 080 490, e-mail i formularze zapisu.">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="Kontakt | {{BRAND}}">
+  <meta property="og:description" content="Zapisz się na treningi albo napisz do nas.">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{SITE_URL}}/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "url": "{{PAGE_URL}}",
+        "inLanguage": "{{LANG}}",
+        "about": { "@id": "{{SITE_URL}}/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "{{BRAND}}", "item": "{{SITE_URL}}/" },
+          { "@type": "ListItem", "position": 2, "name": "Kontakt", "item": "{{PAGE_URL}}" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+  <main id="main">
+    <section class="page-hero">
+      <p class="eyebrow">Kontakt</p>
+      <h1>Dołącz do Rozbieganych</h1>
+      <p class="lead">Wybierz, jak chcesz z nami trenować, i wypełnij krótki formularz zapisu. Odezwiemy się z&nbsp;informacjami.</p>
+    </section>
+
+    <section class="section" aria-label="Zapisy">
+      <div class="contact-options">
+        <article class="offer">
+          <p class="tag">Grupa</p>
+          <h2 class="h3-like">Chcę dołączyć do grupy</h2>
+          <p>Chcę dołączyć do grupy i dążyć do realizacji celów w społeczności kobiet.</p>
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd_L8852PyZroYGd3sBOA-3u-LmdSE4qviMN05EDagwE2cljQ/viewform" rel="noopener">Dołączam do treningów grupowych!</a>
+        </article>
+        <article class="offer offer-alt">
+          <p class="tag">1:1</p>
+          <h2 class="h3-like">Chcę trenować indywidualnie</h2>
+          <p>Chcę rozpocząć współpracę indywidualną i dowiedzieć się więcej.</p>
+          <a class="btn btn-invert" href="https://docs.google.com/forms/d/e/1FAIpQLScEK2nptPY66dHU4ljHX5-CEmNGOeTJwvHlYbsvnaj_aU3tqA/viewform" rel="noopener">Chcę trenować indywidualnie!</a>
+        </article>
+      </div>
+      <p class="note">Formularze zapisu otwierają się w Google Forms. Przed treningiem przeczytaj <a href="../dokumenty/regulamin-treningow-otwartych.pdf">regulamin treningów otwartych</a> lub <a href="../dokumenty/regulamin-grupy-zamknietej-2026.pdf">regulamin grupy</a>.</p>
+    </section>
+
+    <section id="kontakt" class="section contact">
+      <div class="contact-card">
+        <div>
+          <p class="eyebrow">Pytania?</p>
+          <h2>Napisz do nas</h2>
+          <p>Jesteśmy tu, by pomóc! Razem znajdziemy odpowiedzi i zaplanujemy Twoją biegową przygodę.</p>
+        </div>
+        <ul class="contact-list">
+          <li><span class="contact-label">Telefon / WhatsApp</span><a href="tel:+48570080490">+48&nbsp;570&nbsp;080&nbsp;490</a></li>
+          <li><span class="contact-label">E-mail</span><a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></li>
+          <li><span class="contact-label">Social media</span><span class="socials"><a href="https://www.facebook.com/obozy.dla.kobiet" rel="noopener">Facebook</a> <a href="https://www.instagram.com/obozysportowe.dlakobiet/" rel="noopener">Instagram</a></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- @if FORM_ENDPOINT -->
+    <section id="formularz" class="section">
+      <header class="section-head">
+        <p class="eyebrow">Formularz</p>
+        <h2>Wyślij wiadomość</h2>
+      </header>
+      <form id="lead-form" action="{{FORM_ENDPOINT}}" method="post"
+            data-msg-sending="Wysyłanie…"
+            data-msg-success="Dziękujemy! Odezwiemy się wkrótce."
+            data-msg-error="Coś poszło nie tak. Spróbuj ponownie albo napisz e-mail.">
+        <label>Imię i nazwisko <input type="text" name="name" autocomplete="name" required></label>
+        <label>Adres e-mail <input type="email" name="email" required autocomplete="email"></label>
+        <label class="full">Wiadomość <textarea name="message" rows="5"></textarea></label>
+        <input type="hidden" name="_subject" value="Nowa wiadomość ze strony {{BRAND}}">
+        <input type="hidden" name="page" value="{{PAGE_URL}}">
+        <!-- @if TURNSTILE_SITE_KEY -->
+        <div class="turnstile" data-turnstile="{{TURNSTILE_SITE_KEY}}"></div>
+        <!-- @endif -->
+        <!-- @if FORM_ACCESS_KEY -->
+        <input type="hidden" name="access_key" value="{{FORM_ACCESS_KEY}}">
+        <!-- @endif -->
+        <label class="hp" aria-hidden="true">Zostaw puste <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        <button class="btn" type="submit">Wyślij</button>
+        <p class="form-note">Twoje dane wykorzystamy tylko do odpowiedzi. Zobacz <a href="../privacy.html">politykę prywatności</a>.</p>
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <!-- @endif -->
+  </main>
+  <!-- @include footer -->
+</body>
+</html>

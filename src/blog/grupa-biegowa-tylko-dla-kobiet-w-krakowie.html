@@ -1,0 +1,103 @@
+<!-- @vars
+{
+  "POST_TITLE": "Grupa biegowa tylko dla kobiet w Krakowie",
+  "POST_DESCRIPTION": "Trenuj w babskiej grupie biegowej Rozbiegane w Krakowie: poniedziałki o 19:00. Dla kobiet, które chcą biegać regularnie i startować w biegach.",
+  "DATE": "2026-01-01",
+  "DATE_MODIFIED": "2026-07-14",
+  "POST_IMAGE": "",
+  "CTA_HEADING": "Dołącz do grupy Rozbiegane",
+  "CTA_TEXT": "Cennik grupy i współpracy indywidualnej znajdziesz w ofercie."
+}
+-->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>{{POST_TITLE}} | {{BRAND}}</title>
+  <meta name="description" content="{{POST_DESCRIPTION}}">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="{{POST_TITLE}}">
+  <meta property="og:description" content="{{POST_DESCRIPTION}}">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{POST_IMAGE}}">
+  <meta property="article:published_time" content="{{DATE}}">
+  <meta property="article:modified_time" content="{{DATE_MODIFIED}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{POST_TITLE}}">
+  <meta name="twitter:description" content="{{POST_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{POST_IMAGE}}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "{{PAGE_URL}}#article",
+        "headline": "{{POST_TITLE}}",
+        "description": "{{POST_DESCRIPTION}}",
+        "image": "{{POST_IMAGE}}",
+        "datePublished": "{{DATE}}",
+        "dateModified": "{{DATE_MODIFIED}}",
+        "inLanguage": "{{LANG}}",
+        "mainEntityOfPage": "{{PAGE_URL}}",
+        "author": { "@type": "Person", "name": "{{AUTHOR_NAME}}", "url": "{{AUTHOR_URL}}" },
+        "publisher": { "@id": "{{SITE_URL}}/#organization" },
+        "isPartOf": { "@id": "{{SITE_URL}}/blog/#blog" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "{{BRAND}}", "item": "{{SITE_URL}}/" },
+          { "@type": "ListItem", "position": 2, "name": "Aktualności", "item": "{{SITE_URL}}/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "{{POST_TITLE}}", "item": "{{PAGE_URL}}" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+  <main id="main" class="section">
+    <nav class="breadcrumb" aria-label="Okruszki">
+      <ol>
+        <li><a href="../">{{BRAND}}</a></li>
+        <li><a href="./">Aktualności</a></li>
+        <li aria-current="page">{{POST_TITLE}}</li>
+      </ol>
+    </nav>
+    <article>
+      <h1>{{POST_TITLE}}</h1>
+      <p class="post-meta">
+        {{AUTHOR_NAME}} · Opublikowano <time datetime="{{DATE}}">{{DATE}}</time>
+        · Aktualizacja <time datetime="{{DATE_MODIFIED}}">{{DATE_MODIFIED}}</time>
+      </p>
+      <!-- Post body goes here: h2/h3, paragraphs, lists. The title above is the only h1. -->
+      <p>Nowy rok, nowa energia! Trenuj w babskiej grupie biegowej w Krakowie – <strong>Rozbiegane</strong>. Spotykamy się w poniedziałki o 19:00; aktualne miejsce zbiórki znajdziesz w <a href="../oferta/">ofercie</a>.</p>
+<div class="post-photos one">
+<img src="../img/bez-nazwy-26-sm.jpg" srcset="../img/bez-nazwy-26-sm.jpg 720w, ../img/bez-nazwy-26.jpg 1400w" sizes="(min-width: 760px) 44rem, 100vw" width="1400" height="933" alt="Grupa kobiet biegnie alejką w parku podczas treningu Rozbiegane" loading="lazy" decoding="async">
+</div>
+<h2>Dla kogo?</h2>
+<ul>
+<li>dla kobiet, które chcą biegać regularnie,</li>
+<li>dla tych, które lubią wyzwania i chcą widzieć efekty,</li>
+<li>dla startujących w biegach ulicznych.</li>
+</ul>
+<h2>Jak dołączyć?</h2>
+<p>Napisz do nas na Instagramie lub Facebooku albo skorzystaj z <a href="../kontakt/">formularza zapisu</a> – otrzymasz od nas szczegóły. Cennik wraz z ofertą dla grupy oraz współpracy indywidualnej znajdziesz w zakładce <a href="../oferta/">Oferta</a>.</p>
+<p><strong>Jeszcze u nas nie byłaś?</strong> Możesz skorzystać z pierwszego treningu i wtedy zdecydować, czy zostajesz na dłużej. Śledź nasze aktualności, aby wziąć udział w treningu otwartym.</p>
+      <aside class="cta-box">
+        <h2>{{CTA_HEADING}}</h2>
+        <p>{{CTA_TEXT}}</p>
+        <div class="actions"><a class="btn" href="../kontakt/">{{CTA_LABEL}}</a> <a class="btn btn-ghost" href="../oferta/">Zobacz ofertę</a></div>
+      </aside>
+    </article>
+  </main>
+  <!-- @include footer -->
+</body>
+</html>

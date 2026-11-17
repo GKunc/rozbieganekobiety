@@ -1,0 +1,106 @@
+<!-- @vars
+{
+  "POST_TITLE": "Przedświąteczny trening – zaproszenie na 21.12",
+  "POST_DESCRIPTION": "Zaproszenie na darmowy przedświąteczny trening dla kobiet 21.12 o 9:00 w Parku im. Wojciecha Bednarskiego w Krakowie: technika, bieżnia i kawa.",
+  "DATE": "2024-12-18",
+  "DATE_MODIFIED": "2024-12-26",
+  "POST_IMAGE": "",
+  "CTA_HEADING": "Chcesz biegać z nami częściej?",
+  "CTA_TEXT": "Sprawdź ofertę grupy Rozbiegane."
+}
+-->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>{{POST_TITLE}} | {{BRAND}}</title>
+  <meta name="description" content="{{POST_DESCRIPTION}}">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="{{POST_TITLE}}">
+  <meta property="og:description" content="{{POST_DESCRIPTION}}">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{POST_IMAGE}}">
+  <meta property="article:published_time" content="{{DATE}}">
+  <meta property="article:modified_time" content="{{DATE_MODIFIED}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{POST_TITLE}}">
+  <meta name="twitter:description" content="{{POST_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{POST_IMAGE}}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "{{PAGE_URL}}#article",
+        "headline": "{{POST_TITLE}}",
+        "description": "{{POST_DESCRIPTION}}",
+        "image": "{{POST_IMAGE}}",
+        "datePublished": "{{DATE}}",
+        "dateModified": "{{DATE_MODIFIED}}",
+        "inLanguage": "{{LANG}}",
+        "mainEntityOfPage": "{{PAGE_URL}}",
+        "author": { "@type": "Person", "name": "{{AUTHOR_NAME}}", "url": "{{AUTHOR_URL}}" },
+        "publisher": { "@id": "{{SITE_URL}}/#organization" },
+        "isPartOf": { "@id": "{{SITE_URL}}/blog/#blog" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "{{BRAND}}", "item": "{{SITE_URL}}/" },
+          { "@type": "ListItem", "position": 2, "name": "Aktualności", "item": "{{SITE_URL}}/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "{{POST_TITLE}}", "item": "{{PAGE_URL}}" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+  <main id="main" class="section">
+    <nav class="breadcrumb" aria-label="Okruszki">
+      <ol>
+        <li><a href="../">{{BRAND}}</a></li>
+        <li><a href="./">Aktualności</a></li>
+        <li aria-current="page">{{POST_TITLE}}</li>
+      </ol>
+    </nav>
+    <article>
+      <h1>{{POST_TITLE}}</h1>
+      <p class="post-meta">
+        {{AUTHOR_NAME}} · Opublikowano <time datetime="{{DATE}}">{{DATE}}</time>
+        · Aktualizacja <time datetime="{{DATE_MODIFIED}}">{{DATE_MODIFIED}}</time>
+      </p>
+      <!-- Post body goes here: h2/h3, paragraphs, lists. The title above is the only h1. -->
+      <p>Przed świętami zawsze dużo się dzieje – zakupy, przygotowania, obowiązki. Dlatego zapraszam Cię na chwilę wytchnienia i ruchu w kobiecym gronie!</p>
+<ul class="facts">
+<li><strong>Kiedy?</strong> 21.12, godzina 9:00</li>
+<li><strong>Gdzie?</strong> Park im. Wojciecha Bednarskiego w Krakowie</li>
+<li><strong>Dla kogo?</strong> Dla każdej kobiety, bez względu na poziom zaawansowania</li>
+</ul>
+<h2>Podczas treningu</h2>
+<ul>
+<li>rozgrzejemy się i zadbamy o technikę,</li>
+<li>zrobimy lekkie ćwiczenia przeplatane biegiem w parku,</li>
+<li>udamy się na bieżnię tartanową,</li>
+<li>pogadamy przy ciepłej herbacie,</li>
+<li>po treningu pójdziemy do uroczej kawiarni w środku parku.</li>
+</ul>
+<p>Załóż wygodne buty i dołącz do nas – bieganie w kobiecym gronie to czysta przyjemność! Trening jest darmowy i nie obowiązują zapisy. <a href="https://fb.me/e/5yyt7oTeg" rel="noopener">Wydarzenie na Facebooku</a>.</p>
+<p>Relacja: <a href="rozbiegajmy-kobiety-park-bednarskiego.html">grudniowy trening w Parku Bednarskiego</a>.</p>
+      <aside class="cta-box">
+        <h2>{{CTA_HEADING}}</h2>
+        <p>{{CTA_TEXT}}</p>
+        <div class="actions"><a class="btn" href="../kontakt/">{{CTA_LABEL}}</a> <a class="btn btn-ghost" href="../oferta/">Zobacz ofertę</a></div>
+      </aside>
+    </article>
+  </main>
+  <!-- @include footer -->
+</body>
+</html>

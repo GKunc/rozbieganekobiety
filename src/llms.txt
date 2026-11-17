@@ -4,14 +4,29 @@
 
 {{LLMS_SUMMARY}}
 
-## Pages
+## Najważniejsze informacje
 
-- [Home]({{SITE_URL}}/): {{PAGE_TITLE}}
-- [Privacy policy]({{SITE_URL}}/privacy.html): how personal data is handled
+- Grupa Rozbiegane: treningi grupowe dla kobiet w Krakowie, każdy poniedziałek o 19:00, Błonia / Park Jordana; kameralna grupa do 10 osób.
+- Cennik grupy: 80 zł (udział 1× w tygodniu, kontakt z grupą i trenerkami, porady biegowe); 300 zł z indywidualnym planem treningowym.
+- Treningi indywidualne: konsultacja 250 zł, pakiet 4 treningów 600 zł, pakiet 8 treningów 1100 zł; plany treningowe 250–800 zł (po pakiecie treningów).
+- Otwarte, darmowe treningi dla kobiet ogłaszamy w aktualnościach.
+- Obozy biegowe dla kobiet na każdym poziomie, także z zajęciami dla kobiet, które nie mogą biegać.
+- Trenerka: Magdalena Kunc – instruktorka PZLA, trenerka personalna, instruktorka fitnessu PROFI Fitness School.
+- Kontakt: tel. +48 570 080 490, {{CONTACT_EMAIL}}
+
+## Strony
+
+- [Strona główna]({{SITE_URL}}/): {{PAGE_TITLE}}
+- [Oferta i cennik]({{SITE_URL}}/oferta/): treningi grupowe i indywidualne
+- [O nas]({{SITE_URL}}/o-nas/): trenerka Magdalena Kunc i misja grupy
+- [Galeria]({{SITE_URL}}/galeria/): zdjęcia z treningów i obozów
+- [Kontakt]({{SITE_URL}}/kontakt/): zapisy na treningi, telefon, e-mail
+- [Regulamin treningów otwartych]({{SITE_URL}}/dokumenty/regulamin-treningow-otwartych.pdf)
+- [Polityka prywatności]({{SITE_URL}}/privacy.html): jak przetwarzamy dane osobowe
 
 <!-- @if HAS_POSTS -->
-## Blog
+## Aktualności
 
-- [All articles]({{SITE_URL}}/blog/): index of every post
+- [Wszystkie wpisy]({{SITE_URL}}/blog/): zapowiedzi i relacje z treningów i obozów
 <!-- @posts -->
 <!-- @endif -->

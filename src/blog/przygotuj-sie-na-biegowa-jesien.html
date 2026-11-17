@@ -1,0 +1,98 @@
+<!-- @vars
+{
+  "POST_TITLE": "Biegowa jesień: wrzesień otwartych treningów",
+  "POST_DESCRIPTION": "Z okazji urodzin grupy Rozbiegane cały wrzesień to otwarte treningi dla kobiet: poniedziałki o 19:00 przy Błoniach, start 31.08 przy VIII LO.",
+  "DATE": "2026-08-20",
+  "DATE_MODIFIED": "2026-08-22",
+  "POST_IMAGE": "",
+  "CTA_HEADING": "Chcesz biegać z nami na stałe?",
+  "CTA_TEXT": "Sprawdź ofertę grupy Rozbiegane i treningów indywidualnych."
+}
+-->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>{{POST_TITLE}} | {{BRAND}}</title>
+  <meta name="description" content="{{POST_DESCRIPTION}}">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="{{POST_TITLE}}">
+  <meta property="og:description" content="{{POST_DESCRIPTION}}">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{POST_IMAGE}}">
+  <meta property="article:published_time" content="{{DATE}}">
+  <meta property="article:modified_time" content="{{DATE_MODIFIED}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{POST_TITLE}}">
+  <meta name="twitter:description" content="{{POST_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{POST_IMAGE}}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "{{PAGE_URL}}#article",
+        "headline": "{{POST_TITLE}}",
+        "description": "{{POST_DESCRIPTION}}",
+        "image": "{{POST_IMAGE}}",
+        "datePublished": "{{DATE}}",
+        "dateModified": "{{DATE_MODIFIED}}",
+        "inLanguage": "{{LANG}}",
+        "mainEntityOfPage": "{{PAGE_URL}}",
+        "author": { "@type": "Person", "name": "{{AUTHOR_NAME}}", "url": "{{AUTHOR_URL}}" },
+        "publisher": { "@id": "{{SITE_URL}}/#organization" },
+        "isPartOf": { "@id": "{{SITE_URL}}/blog/#blog" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "{{BRAND}}", "item": "{{SITE_URL}}/" },
+          { "@type": "ListItem", "position": 2, "name": "Aktualności", "item": "{{SITE_URL}}/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "{{POST_TITLE}}", "item": "{{PAGE_URL}}" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+  <main id="main" class="section">
+    <nav class="breadcrumb" aria-label="Okruszki">
+      <ol>
+        <li><a href="../">{{BRAND}}</a></li>
+        <li><a href="./">Aktualności</a></li>
+        <li aria-current="page">{{POST_TITLE}}</li>
+      </ol>
+    </nav>
+    <article>
+      <h1>{{POST_TITLE}}</h1>
+      <p class="post-meta">
+        {{AUTHOR_NAME}} · Opublikowano <time datetime="{{DATE}}">{{DATE}}</time>
+        · Aktualizacja <time datetime="{{DATE_MODIFIED}}">{{DATE_MODIFIED}}</time>
+      </p>
+      <!-- Post body goes here: h2/h3, paragraphs, lists. The title above is the only h1. -->
+      <p>Biegaj z grupą Rozbiegane i przygotuj się do jesiennych startów. Z okazji urodzin naszej grupy mamy dla Was niespodziankę: <strong>cały wrzesień będzie miesiącem otwartych treningów</strong>.</p>
+<div class="post-photos one">
+<img src="../img/purple-bold-running-club-event-instagram-sm.jpg" srcset="../img/purple-bold-running-club-event-instagram-sm.jpg 576w, ../img/purple-bold-running-club-event-instagram.jpg 1120w" sizes="(min-width: 760px) 44rem, 100vw" width="1120" height="1400" alt="Plakat: Biegajmy razem w grupie Rozbiegane. Wrzesień – wejście otwarte, miesiąc treningów, obowiązują zapisy, startujemy 31.08" loading="lazy" decoding="async">
+</div>
+<p>Będziecie mogły uczestniczyć w naszych cotygodniowych spotkaniach biegowych – w każdy poniedziałek września o 19:00, przy Błoniach.</p>
+<p>Warunkiem koniecznym jest <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9LXhZllV8dyBFgDZLY9m5DnOrWeoW3qZpMiyGk-YL2YtdWA/viewform" rel="noopener">zapis</a> i obecność na pierwszym treningu 31.08. Tego dnia trening wyjątkowo odbędzie się w innej lokalizacji: spotykamy się na bieżni przy VIII LO.</p>
+<p>To idealny moment, aby wejść w rutynę przygotowań do największych krakowskich imprez biegowych: <a href="https://cracoviapolmaraton.pl/" rel="noopener">12. PKO Cracovia Półmaraton Królewski</a> czy <a href="https://biegtrzechkopcow.pl/" rel="noopener">19. PGE Bieg Trzech Kopców</a>.</p>
+<p>Śledź nasze konta na <a href="https://www.facebook.com/Rozbieganekobiety" rel="noopener">Facebooku</a> i <a href="https://www.instagram.com/rozbiegane.kobiety/" rel="noopener">Instagramie</a>. Przed dołączeniem do treningu zapoznaj się z <a href="../dokumenty/regulamin-treningow-otwartych.pdf">regulaminem treningów otwartych</a>.</p>
+      <aside class="cta-box">
+        <h2>{{CTA_HEADING}}</h2>
+        <p>{{CTA_TEXT}}</p>
+        <div class="actions"><a class="btn" href="../kontakt/">{{CTA_LABEL}}</a> <a class="btn btn-ghost" href="../oferta/">Zobacz ofertę</a></div>
+      </aside>
+    </article>
+  </main>
+  <!-- @include footer -->
+</body>
+</html>

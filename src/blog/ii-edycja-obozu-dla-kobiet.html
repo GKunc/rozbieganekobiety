@@ -1,0 +1,100 @@
+<!-- @vars
+{
+  "POST_TITLE": "II edycja obozu dla kobiet – Skomielna Czarna 2024",
+  "POST_DESCRIPTION": "Relacja z II edycji weekendowego obozu biegowego dla kobiet w Skomielnej Czarnej: treningi biegowe, nordic walking, płotki, basen i jacuzzi.",
+  "DATE": "2024-03-21",
+  "DATE_MODIFIED": "2024-12-26",
+  "POST_IMAGE": "",
+  "CTA_HEADING": "Chcesz pojechać na obóz?",
+  "CTA_TEXT": "Napisz do nas – damy znać o kolejnej edycji."
+}
+-->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>{{POST_TITLE}} | {{BRAND}}</title>
+  <meta name="description" content="{{POST_DESCRIPTION}}">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="{{POST_TITLE}}">
+  <meta property="og:description" content="{{POST_DESCRIPTION}}">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{POST_IMAGE}}">
+  <meta property="article:published_time" content="{{DATE}}">
+  <meta property="article:modified_time" content="{{DATE_MODIFIED}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{POST_TITLE}}">
+  <meta name="twitter:description" content="{{POST_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{POST_IMAGE}}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "{{PAGE_URL}}#article",
+        "headline": "{{POST_TITLE}}",
+        "description": "{{POST_DESCRIPTION}}",
+        "image": "{{POST_IMAGE}}",
+        "datePublished": "{{DATE}}",
+        "dateModified": "{{DATE_MODIFIED}}",
+        "inLanguage": "{{LANG}}",
+        "mainEntityOfPage": "{{PAGE_URL}}",
+        "author": { "@type": "Person", "name": "{{AUTHOR_NAME}}", "url": "{{AUTHOR_URL}}" },
+        "publisher": { "@id": "{{SITE_URL}}/#organization" },
+        "isPartOf": { "@id": "{{SITE_URL}}/blog/#blog" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "{{BRAND}}", "item": "{{SITE_URL}}/" },
+          { "@type": "ListItem", "position": 2, "name": "Aktualności", "item": "{{SITE_URL}}/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "{{POST_TITLE}}", "item": "{{PAGE_URL}}" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+  <main id="main" class="section">
+    <nav class="breadcrumb" aria-label="Okruszki">
+      <ol>
+        <li><a href="../">{{BRAND}}</a></li>
+        <li><a href="./">Aktualności</a></li>
+        <li aria-current="page">{{POST_TITLE}}</li>
+      </ol>
+    </nav>
+    <article>
+      <h1>{{POST_TITLE}}</h1>
+      <p class="post-meta">
+        {{AUTHOR_NAME}} · Opublikowano <time datetime="{{DATE}}">{{DATE}}</time>
+        · Aktualizacja <time datetime="{{DATE_MODIFIED}}">{{DATE_MODIFIED}}</time>
+      </p>
+      <!-- Post body goes here: h2/h3, paragraphs, lists. The title above is the only h1. -->
+      <p>Zakończył się niesamowity weekendowy obóz biegowy dedykowany wyłącznie kobietom. Spędziłyśmy go w wyjątkowym miejscu – <a href="https://oliviaspa.pl/" rel="noopener">Hotel Olivia Medical Spa</a>. Był to czas pełen aktywności, nauki i relaksu!</p>
+<p>Uczestniczki wzięły udział w intensywnych treningach biegowych, porannych sesjach nordic walking, ćwiczeniach sprawnościowych oraz nauce technik płotkarskich. W programie znalazły się także ćwiczenia wzmacniające z piłkami lekarskimi.</p>
+<div class="post-photos">
+<img src="../img/img-8250-sm.jpg" srcset="../img/img-8250-sm.jpg 720w, ../img/img-8250.jpg 1400w" sizes="(min-width: 760px) 22rem, 50vw" width="1400" height="1050" alt="Uczestniczki obozu w Skomielnej Czarnej na górskim spacerze" loading="lazy" decoding="async">
+<img src="../img/img-8275-sm.jpg" srcset="../img/img-8275-sm.jpg 720w, ../img/img-8275.jpg 1400w" sizes="(min-width: 760px) 22rem, 50vw" width="1400" height="1050" alt="Grupa uczestniczek obozu z kijkami do nordic walking" loading="lazy" decoding="async">
+<img src="../img/img-8359-sm.jpg" srcset="../img/img-8359-sm.jpg 540w, ../img/img-8359.jpg 1050w" sizes="(min-width: 760px) 22rem, 50vw" width="1050" height="1400" alt="Ćwiczenia na boisku podczas obozu" loading="lazy" decoding="async">
+<img src="../img/img-8368-sm.jpg" srcset="../img/img-8368-sm.jpg 540w, ../img/img-8368.jpg 1050w" sizes="(min-width: 760px) 22rem, 50vw" width="1050" height="1400" alt="Uczestniczka wykonuje ćwiczenie na boisku" loading="lazy" decoding="async">
+</div>
+<p>Oprócz intensywnej pracy nad kondycją obóz oferował również chwile relaksu i aktywnej regeneracji. Uczestniczki mogły korzystać z hotelowego basenu i jacuzzi. Był to czas nie tylko doskonalenia umiejętności biegowych, ale też zacieśniania więzi i cieszenia się wspólną pasją.</p>
+<p>Serdecznie dziękujemy wszystkim uczestniczkom za zaangażowanie i wspaniałe chwile spędzone razem!</p>
+      <aside class="cta-box">
+        <h2>{{CTA_HEADING}}</h2>
+        <p>{{CTA_TEXT}}</p>
+        <div class="actions"><a class="btn" href="../kontakt/">{{CTA_LABEL}}</a> <a class="btn btn-ghost" href="../oferta/">Zobacz ofertę</a></div>
+      </aside>
+    </article>
+  </main>
+  <!-- @include footer -->
+</body>
+</html>

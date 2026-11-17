@@ -33,13 +33,21 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": "SportsOrganization",
         "@id": "{{SITE_URL}}/#organization",
         "name": "{{BRAND}}",
+        "slogan": "W kobietach siła",
         "url": "{{SITE_URL}}/",
         "logo": "{{SITE_URL}}/icon-512.png",
         "description": "{{META_DESCRIPTION}}",
-        "sameAs": []
+        "sport": "Bieganie",
+        "email": "{{CONTACT_EMAIL}}",
+        "telephone": "+48570080490",
+        "areaServed": { "@type": "City", "name": "Kraków" },
+        "sameAs": [
+          "https://www.facebook.com/obozy.dla.kobiet",
+          "https://www.instagram.com/obozysportowe.dlakobiet/"
+        ]
       },
       {
         "@type": "WebSite",
@@ -48,6 +56,22 @@
         "url": "{{SITE_URL}}/",
         "inLanguage": "{{LANG}}",
         "publisher": { "@id": "{{SITE_URL}}/#organization" }
+      },
+      {
+        "@type": "Service",
+        "name": "Otwarte treningi biegowe dla kobiet w Krakowie",
+        "serviceType": "Treningi biegowe",
+        "provider": { "@id": "{{SITE_URL}}/#organization" },
+        "areaServed": { "@type": "City", "name": "Kraków" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PLN" }
+      },
+      {
+        "@type": "Service",
+        "name": "Współpraca treningowa 1:1",
+        "serviceType": "Indywidualny trening biegowy",
+        "description": "Wywiad i testy, plan treningowy (biegowy i/lub motoryczny), praca nad techniką biegu.",
+        "provider": { "@id": "{{SITE_URL}}/#organization" },
+        "areaServed": { "@type": "City", "name": "Kraków" }
       }
     ]
   }
@@ -59,8 +83,28 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Question one?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Answer one." }
+        "name": "Czy dołączenie do grupy biegowej wymaga jakiegoś poziomu zaawansowania?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nie. Nasza grupa jest dla kobiet na różnych etapach przygody z bieganiem. Dostosowuję tempo i ćwiczenia tak, żebyś czuła się komfortowo. Ważne jest to, że chcesz się ruszać – resztą zajmiemy się razem." }
+      },
+      {
+        "@type": "Question",
+        "name": "Co zabrać na pierwszy trening?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Wygodne buty do biegania, ubranie dostosowane do pogody i… uśmiech. Jeśli masz zegarek sportowy – super, ale absolutnie nie jest konieczny." }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak wyglądają treningi indywidualne?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Pracujemy 1:1. Zaczynam od krótkiego wywiadu i testów, żeby poznać Twoje cele i możliwości. Na tej podstawie układam plan treningowy (biegowy i/lub motoryczny), który realizujemy razem oraz samodzielnie między spotkaniami." }
+      },
+      {
+        "@type": "Question",
+        "name": "Dla kogo przeznaczony jest obóz?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Obóz jest skierowany do kobiet na każdym poziomie zaawansowania – zarówno dla początkujących, jak i doświadczonych biegaczek. Treningi są dostosowane do Twoich możliwości i celów. W trakcie wyjazdu organizujemy treningi dla dziewczyn biegających oraz równolegle aktywności dla dziewczyn, które nie mogą biegać." }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak zapisać się na zajęcia?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Najprościej – napisz do mnie wiadomość lub wypełnij formularz na stronie. Odezwę się, ustalimy termin i działamy." }
       }
     ]
   }
@@ -71,59 +115,166 @@
 
   <main id="main">
     <section class="hero">
-      <h1>{{H1_HEADLINE}}</h1>
-      <p class="lead">{{SUBHEADLINE}}</p>
-      <a class="btn" href="#contact">{{CTA_LABEL}}</a>
-    </section>
-
-    <section id="benefits" class="section">
-      <h2>Why {{BRAND}}</h2>
-      <div class="grid">
-        <article class="card"><h3>Benefit one</h3><p>Describe the outcome, not the feature.</p></article>
-        <article class="card"><h3>Benefit two</h3><p>Describe the outcome, not the feature.</p></article>
-        <article class="card"><h3>Benefit three</h3><p>Describe the outcome, not the feature.</p></article>
+      <div class="hero-copy">
+        <p class="eyebrow">Kraków · od kobiet dla kobiet</p>
+        <h1>Trenuj bieganie w&nbsp;grupie <em>kobiet!</em></h1>
+        <p class="lead">{{BRAND}} to krakowska społeczność biegowa dla kobiet. {{SUBHEADLINE}}</p>
+        <div class="hero-actions">
+          <a class="btn" href="#oferta">Zobacz, jak trenujemy</a>
+          <a class="btn btn-ghost" href="kontakt/">{{CTA_LABEL}}</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 400" width="400" height="400" focusable="false">
+          <g fill="none" stroke-linecap="round">
+            <rect class="lane lane-1" x="20" y="60" width="360" height="280" rx="140"/>
+            <rect class="lane lane-2" x="52" y="92" width="296" height="216" rx="108"/>
+            <rect class="lane lane-3" x="84" y="124" width="232" height="152" rx="76"/>
+            <rect class="runner-path" x="20" y="60" width="360" height="280" rx="140" pathLength="100"/>
+          </g>
+          <text class="art-tag" x="200" y="194" text-anchor="middle">W kobietach</text>
+          <text class="art-tag art-tag-strong" x="200" y="244" text-anchor="middle">siła</text>
+        </svg>
       </div>
     </section>
 
-    <section id="proof" class="section">
-      <h2>What people say</h2>
-      <blockquote>“Replace with a real testimonial.” <cite>Name, Role</cite></blockquote>
+    <div class="ribbon" aria-hidden="true">
+      <p>Treningi otwarte <span>✦</span> Grupa biegowa <span>✦</span> Treningi 1:1 <span>✦</span> Obozy dla kobiet <span>✦</span> Kraków</p>
+    </div>
+
+    <section id="oferta" class="section">
+      <header class="section-head">
+        <p class="eyebrow">Oferta</p>
+        <h2>Zobacz, jak trenujemy</h2>
+      </header>
+      <div class="offers">
+        <article class="offer">
+          <p class="tag">Bezpłatnie</p>
+          <h3>Otwarte treningi w Krakowie</h3>
+          <p>Chcemy rozbiegać kobiety w Krakowie. Prowadzimy otwarte, darmowe treningi biegowe na miejscu. Znajdź coś dla siebie i odnajdź się w aktywnej społeczności.</p>
+          <a class="text-link" href="blog/">Sprawdź najbliższe treningi <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="offer offer-alt">
+          <p class="tag">1:1</p>
+          <h3>Współpraca treningowa</h3>
+          <p>Potrzebujesz wsparcia treningowego? A może chcesz popracować nad techniką biegu lub skorzystać z planu treningowego? Napisz do mnie, a wspólnie ustalimy rodzaj współpracy i cele spotkań.</p>
+          <a class="text-link" href="oferta/#indywidualnie">Zobacz cennik <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Zdjęcia z treningów">
+      <div class="photo-band">
+        <figure class="photo"><img src="{{ROOT}}img/kobiety-sm.jpg" srcset="{{ROOT}}img/kobiety-sm.jpg 720w, {{ROOT}}img/kobiety.jpg 1400w" sizes="(min-width: 900px) 50vw, 100vw" width="1400" height="932" alt="Uczestniczki Rozbieganych skaczą radośnie po treningu w parku" loading="lazy" decoding="async"></figure>
+        <figure class="photo"><img src="{{ROOT}}img/img-3210-sm.jpg" srcset="{{ROOT}}img/img-3210-sm.jpg 720w, {{ROOT}}img/img-3210.jpg 1400w" sizes="(min-width: 900px) 25vw, 50vw" width="1400" height="1050" alt="Grupa kobiet podczas ćwiczeń na bieżni" loading="lazy" decoding="async"></figure>
+        <figure class="photo"><img src="{{ROOT}}img/a7400349-sm.jpg" srcset="{{ROOT}}img/a7400349-sm.jpg 480w, {{ROOT}}img/a7400349.jpg 933w" sizes="(min-width: 900px) 25vw, 50vw" width="933" height="1400" alt="Magdalena Kunc, trenerka Rozbieganych" loading="lazy" decoding="async"></figure>
+      </div>
+      <p class="note"><a href="galeria/">Zobacz więcej zdjęć w galerii</a> albo poznaj <a href="o-nas/">naszą trenerkę</a>.</p>
+    </section>
+
+    <section id="jak-dolaczyc" class="section">
+      <header class="section-head">
+        <p class="eyebrow">Jak dołączyć</p>
+        <h2>Do Rozbieganych Kobiet w&nbsp;pięciu krokach</h2>
+      </header>
+      <ol class="steps">
+        <li><span class="step-n" aria-hidden="true">1</span><h3><a href="oferta/">Zapoznaj się z ofertą</a></h3></li>
+        <li><span class="step-n" aria-hidden="true">2</span><h3><a href="kontakt/">Wypełnij formularz</a></h3></li>
+        <li><span class="step-n" aria-hidden="true">3</span><h3>Poczekaj na wiadomość zwrotną</h3></li>
+        <li><span class="step-n" aria-hidden="true">4</span><h3>Opłać pakiet</h3></li>
+        <li><span class="step-n" aria-hidden="true">5</span><h3>Dołącz do grupy na WhatsAppie</h3></li>
+      </ol>
+    </section>
+
+    <section id="dlaczego-my" class="section">
+      <header class="section-head">
+        <p class="eyebrow">Dlaczego my?</p>
+        <h2>Więcej niż trening</h2>
+      </header>
+      <div class="reasons">
+        <article>
+          <p class="reason-n" aria-hidden="true">01</p>
+          <h3>Treningi dostosowane do Twojego poziomu</h3>
+          <p>Niezależnie od tego, czy dopiero zaczynasz przygodę z bieganiem, czy przygotowujesz się do kolejnego maratonu – treningi są dostosowane do Twoich możliwości i celów. Doświadczone trenerki pomogą Ci osiągnąć progres, poprawić technikę i wzmocnić kondycję w zdrowy i bezpieczny sposób.</p>
+        </article>
+        <article>
+          <p class="reason-n" aria-hidden="true">02</p>
+          <h3>Niezapomniane chwile z inspirującymi kobietami</h3>
+          <p>Spotkasz tu kobiety pełne pasji, energii i wspierającego ducha. Wspólne treningi, rozmowy i motywujące historie uczestniczek sprawią, że poczujesz się częścią wyjątkowej społeczności. Wspólne wyzwania na trasie zbliżają i tworzą relacje na lata!</p>
+        </article>
+        <article>
+          <p class="reason-n" aria-hidden="true">03</p>
+          <h3>Czas na relaks, rozwój i dobrą zabawę</h3>
+          <p>Na obozach oprócz treningów jest czas na regenerację: zajęcia rozciągające, warsztaty motywacyjne i wspólne wieczory integracyjne. Obóz to nie tylko bieganie – to chwile, w których odkryjesz swoje mocne strony, odpoczniesz od codzienności i naładujesz baterie.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="opinie" class="section">
+      <header class="section-head">
+        <p class="eyebrow">Opinie</p>
+        <h2>Co mówią uczestniczki</h2>
+      </header>
+      <div class="quotes">
+        <figure>
+          <blockquote><p>Dzięki obozowi nie tylko poprawiłam formę, ale też poznałam niesamowite osoby. Czułam wsparcie na każdym kroku!</p></blockquote>
+          <figcaption>Uczestniczka obozu</figcaption>
+        </figure>
+        <figure>
+          <blockquote><p>To były najlepsze dni w roku! Fantastyczna atmosfera, świetne treningi i ogromna dawka motywacji. Polecam każdej kobiecie!</p></blockquote>
+          <figcaption>Uczestniczka obozu</figcaption>
+        </figure>
+        <figure>
+          <blockquote><p>Profesjonalne podejście, malownicze trasy i czas tylko dla mnie. Wyjechałam pełna energii i inspiracji do dalszego biegania!</p></blockquote>
+          <figcaption>Uczestniczka obozu</figcaption>
+        </figure>
+      </div>
     </section>
 
     <!-- Every <summary> here must match a Question "name" in the FAQPage JSON-LD above (tools/check.mjs enforces it). -->
-    <section id="faq" class="section">
-      <h2>Frequently asked questions</h2>
-      <details>
-        <summary>Question one?</summary>
-        <p>Answer one.</p>
-      </details>
+    <section id="faq" class="section faq">
+      <header class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Najczęstsze pytania</h2>
+      </header>
+      <div class="faq-list">
+        <details>
+          <summary>Czy dołączenie do grupy biegowej wymaga jakiegoś poziomu zaawansowania?</summary>
+          <p>Nie. Nasza grupa jest dla kobiet na różnych etapach przygody z bieganiem. Dostosowuję tempo i ćwiczenia tak, żebyś czuła się komfortowo. Ważne jest to, że chcesz się ruszać – resztą zajmiemy się razem.</p>
+        </details>
+        <details>
+          <summary>Co zabrać na pierwszy trening?</summary>
+          <p>Wygodne buty do biegania, ubranie dostosowane do pogody i… uśmiech. Jeśli masz zegarek sportowy – super, ale absolutnie nie jest konieczny.</p>
+        </details>
+        <details>
+          <summary>Jak wyglądają treningi indywidualne?</summary>
+          <p>Pracujemy 1:1. Zaczynam od krótkiego wywiadu i testów, żeby poznać Twoje cele i możliwości. Na tej podstawie układam plan treningowy (biegowy i/lub motoryczny), który realizujemy razem oraz samodzielnie między spotkaniami.</p>
+        </details>
+        <details>
+          <summary>Dla kogo przeznaczony jest obóz?</summary>
+          <p>Obóz jest skierowany do kobiet na każdym poziomie zaawansowania – zarówno dla początkujących, jak i doświadczonych biegaczek. Treningi są dostosowane do Twoich możliwości i celów. W trakcie wyjazdu organizujemy treningi dla dziewczyn biegających oraz równolegle aktywności dla dziewczyn, które nie mogą biegać.</p>
+        </details>
+        <details>
+          <summary>Jak zapisać się na zajęcia?</summary>
+          <p>Najprościej – napisz do mnie wiadomość lub wypełnij formularz na stronie. Odezwę się, ustalimy termin i działamy.</p>
+        </details>
+      </div>
     </section>
 
-    <section id="contact" class="section">
-      <h2>{{CTA_LABEL}}</h2>
-      <form id="lead-form" action="{{FORM_ENDPOINT}}" method="post"
-            data-msg-sending="Sending…"
-            data-msg-success="Thanks! We will be in touch."
-            data-msg-error="Something went wrong. Please try again.">
-        <!-- Fields: remove name/message if the brief wants a one-field form. Sending is tested with node tools/form-test.mjs. -->
-        <label>Name <input type="text" name="name" autocomplete="name"></label>
-        <label>Email <input type="email" name="email" required autocomplete="email"></label>
-        <label class="full">Message <textarea name="message" rows="4"></textarea></label>
-        <input type="hidden" name="_subject" value="New enquiry from the {{BRAND}} website">
-        <input type="hidden" name="page" value="{{PAGE_URL}}">
-        <!-- @if TURNSTILE_SITE_KEY -->
-        <!-- Anti-bot check (Cloudflare Turnstile): loaded on first use of the form, usually invisible. -->
-        <div class="turnstile" data-turnstile="{{TURNSTILE_SITE_KEY}}"></div>
-        <!-- @endif -->
-        <!-- @if FORM_ACCESS_KEY -->
-        <input type="hidden" name="access_key" value="{{FORM_ACCESS_KEY}}">
-        <!-- @endif -->
-        <!-- honeypot: real visitors never see or fill this; bots do -->
-        <label class="hp" aria-hidden="true">Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
-        <button class="btn" type="submit">{{CTA_LABEL}}</button>
-        <p class="form-note">We only use your email to reply. See the <a href="privacy.html">privacy policy</a>.</p>
-        <p id="form-status" role="status" aria-live="polite"></p>
-      </form>
+    <section id="kontakt" class="section contact">
+      <div class="contact-card">
+        <div>
+          <p class="eyebrow">Kontakt</p>
+          <h2>Pobiegnij z&nbsp;nami</h2>
+          <p>Napisz albo zadzwoń – odpowiemy na pytania o treningi, grupę i obozy.</p>
+          <p class="contact-cta"><a class="btn btn-invert" href="kontakt/">Zapisz się na treningi</a></p>
+        </div>
+        <ul class="contact-list">
+          <li><span class="contact-label">Telefon</span><a href="tel:+48570080490">+48&nbsp;570&nbsp;080&nbsp;490</a></li>
+          <li><span class="contact-label">E-mail</span><a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></li>
+          <li><span class="contact-label">Social media</span><span class="socials"><a href="https://www.facebook.com/obozy.dla.kobiet" rel="noopener">Facebook</a> <a href="https://www.instagram.com/obozysportowe.dlakobiet/" rel="noopener">Instagram</a></span></li>
+        </ul>
+      </div>
     </section>
   </main>
 

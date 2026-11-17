@@ -1,0 +1,97 @@
+<!-- @vars
+{
+  "POST_TITLE": "Babskie lato: sierpniowy trening w Parku Jordana",
+  "POST_DESCRIPTION": "Relacja z otwartego treningu biegowego dla kobiet w Parku Jordana: rozgrzewka, część biegowa i ćwiczenia w kobiecym, wspierającym gronie.",
+  "DATE": "2025-08-30",
+  "DATE_MODIFIED": "",
+  "POST_IMAGE": "",
+  "CTA_HEADING": "Biegaj z nami regularnie",
+  "CTA_TEXT": "Treningi grupowe odbywają się o stałej porze – sprawdź szczegóły w ofercie."
+}
+-->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>{{POST_TITLE}} | {{BRAND}}</title>
+  <meta name="description" content="{{POST_DESCRIPTION}}">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="{{POST_TITLE}}">
+  <meta property="og:description" content="{{POST_DESCRIPTION}}">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{POST_IMAGE}}">
+  <meta property="article:published_time" content="{{DATE}}">
+  <meta property="article:modified_time" content="{{DATE_MODIFIED}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{POST_TITLE}}">
+  <meta name="twitter:description" content="{{POST_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{POST_IMAGE}}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "{{PAGE_URL}}#article",
+        "headline": "{{POST_TITLE}}",
+        "description": "{{POST_DESCRIPTION}}",
+        "image": "{{POST_IMAGE}}",
+        "datePublished": "{{DATE}}",
+        "dateModified": "{{DATE_MODIFIED}}",
+        "inLanguage": "{{LANG}}",
+        "mainEntityOfPage": "{{PAGE_URL}}",
+        "author": { "@type": "Person", "name": "{{AUTHOR_NAME}}", "url": "{{AUTHOR_URL}}" },
+        "publisher": { "@id": "{{SITE_URL}}/#organization" },
+        "isPartOf": { "@id": "{{SITE_URL}}/blog/#blog" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "{{BRAND}}", "item": "{{SITE_URL}}/" },
+          { "@type": "ListItem", "position": 2, "name": "Aktualności", "item": "{{SITE_URL}}/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "{{POST_TITLE}}", "item": "{{PAGE_URL}}" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+  <main id="main" class="section">
+    <nav class="breadcrumb" aria-label="Okruszki">
+      <ol>
+        <li><a href="../">{{BRAND}}</a></li>
+        <li><a href="./">Aktualności</a></li>
+        <li aria-current="page">{{POST_TITLE}}</li>
+      </ol>
+    </nav>
+    <article>
+      <h1>{{POST_TITLE}}</h1>
+      <p class="post-meta">
+        {{AUTHOR_NAME}} · Opublikowano <time datetime="{{DATE}}">{{DATE}}</time>
+        · Aktualizacja <time datetime="{{DATE_MODIFIED}}">{{DATE_MODIFIED}}</time>
+      </p>
+      <!-- Post body goes here: h2/h3, paragraphs, lists. The title above is the only h1. -->
+      <p>W Parku Jordana odbył się otwarty trening biegowy dla kobiet – wyjątkowe spotkanie pełne ruchu, energii i dobrej atmosfery. To grupa otwarta dla kobiet na różnym poziomie zaawansowania: zarówno dla tych, które dopiero zaczynają przygodę z bieganiem, jak i dla bardziej doświadczonych biegaczek.</p>
+<div class="post-photos one">
+<img src="../img/104a7513-7256-46ac-acde-1bc6f90aabbd-sm.jpg" srcset="../img/104a7513-7256-46ac-acde-1bc6f90aabbd-sm.jpg 720w, ../img/104a7513-7256-46ac-acde-1bc6f90aabbd.jpg 1400w" sizes="(min-width: 760px) 44rem, 100vw" width="1400" height="1050" alt="Uczestniczki otwartego treningu biegowego dla kobiet w Parku Jordana w Krakowie o zmierzchu" loading="lazy" decoding="async">
+</div>
+<p>Trening rozpoczęłyśmy jeszcze za dnia, w pięknym otoczeniu parku, a kończyłyśmy już w lekkiej ciemności, co dodało całemu spotkaniu wyjątkowego klimatu. Był czas na rozgrzewkę, część biegową oraz wspólne ćwiczenia – wszystko w kobiecym, wspierającym gronie.</p>
+<p>Cieszymy się, że mogłyśmy spotkać się w tak inspirującym miejscu i stworzyć przestrzeń, w której każda kobieta może biegać w swoim tempie, bez presji, za to z ogromną dawką motywacji.</p>
+<p>Zapraszamy na kolejne treningi, które odbywają się o stałej porze – więcej informacji znajdziesz w <a href="../oferta/">ofercie</a>. Dołącz do nas i przekonaj się, że bieganie w grupie daje jeszcze więcej radości! <a href="../kontakt/">Skontaktuj się z nami</a>.</p>
+      <aside class="cta-box">
+        <h2>{{CTA_HEADING}}</h2>
+        <p>{{CTA_TEXT}}</p>
+        <div class="actions"><a class="btn" href="../kontakt/">{{CTA_LABEL}}</a> <a class="btn btn-ghost" href="../oferta/">Zobacz ofertę</a></div>
+      </aside>
+    </article>
+  </main>
+  <!-- @include footer -->
+</body>
+</html>

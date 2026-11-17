@@ -1,0 +1,104 @@
+<!-- @vars
+{
+  "POST_TITLE": "Wiosna 2026 w Rozbieganych: cykl otwartych treningów",
+  "POST_DESCRIPTION": "Otwarte treningi biegowe dla kobiet wiosną 2026: raz w miesiącu w sobotę lub niedzielę o 9:00 na Błoniach w Krakowie. Bez zapisów i opłat.",
+  "DATE": "2026-02-28",
+  "DATE_MODIFIED": "2026-07-14",
+  "POST_IMAGE": "",
+  "CTA_HEADING": "Masz pytania o treningi?",
+  "CTA_TEXT": "Zajrzyj do oferty albo napisz do nas – chętnie pomożemy."
+}
+-->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>{{POST_TITLE}} | {{BRAND}}</title>
+  <meta name="description" content="{{POST_DESCRIPTION}}">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="{{POST_TITLE}}">
+  <meta property="og:description" content="{{POST_DESCRIPTION}}">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{POST_IMAGE}}">
+  <meta property="article:published_time" content="{{DATE}}">
+  <meta property="article:modified_time" content="{{DATE_MODIFIED}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{POST_TITLE}}">
+  <meta name="twitter:description" content="{{POST_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{POST_IMAGE}}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "{{PAGE_URL}}#article",
+        "headline": "{{POST_TITLE}}",
+        "description": "{{POST_DESCRIPTION}}",
+        "image": "{{POST_IMAGE}}",
+        "datePublished": "{{DATE}}",
+        "dateModified": "{{DATE_MODIFIED}}",
+        "inLanguage": "{{LANG}}",
+        "mainEntityOfPage": "{{PAGE_URL}}",
+        "author": { "@type": "Person", "name": "{{AUTHOR_NAME}}", "url": "{{AUTHOR_URL}}" },
+        "publisher": { "@id": "{{SITE_URL}}/#organization" },
+        "isPartOf": { "@id": "{{SITE_URL}}/blog/#blog" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "{{BRAND}}", "item": "{{SITE_URL}}/" },
+          { "@type": "ListItem", "position": 2, "name": "Aktualności", "item": "{{SITE_URL}}/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "{{POST_TITLE}}", "item": "{{PAGE_URL}}" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+  <main id="main" class="section">
+    <nav class="breadcrumb" aria-label="Okruszki">
+      <ol>
+        <li><a href="../">{{BRAND}}</a></li>
+        <li><a href="./">Aktualności</a></li>
+        <li aria-current="page">{{POST_TITLE}}</li>
+      </ol>
+    </nav>
+    <article>
+      <h1>{{POST_TITLE}}</h1>
+      <p class="post-meta">
+        {{AUTHOR_NAME}} · Opublikowano <time datetime="{{DATE}}">{{DATE}}</time>
+        · Aktualizacja <time datetime="{{DATE_MODIFIED}}">{{DATE_MODIFIED}}</time>
+      </p>
+      <!-- Post body goes here: h2/h3, paragraphs, lists. The title above is the only h1. -->
+      <p>Zapraszamy wszystkie kobiety na wyjątkowy cykl treningów biegowych. Raz w miesiącu spotykamy się w Krakowie, by razem odkrywać radość biegania! To idealna okazja, by aktywnie spędzić poranek, zrobić mocny trening, a przy tym poznać tajniki biegania. Każde spotkanie to nie tylko sport, ale też dawka wiedzy. Spodziewajcie się też drobnych niespodzianek.</p>
+<ul class="facts">
+<li><strong>Terminy:</strong> 21.03.2026 (sobota), 12.04.2026 (niedziela), 16.05.2026 (sobota)</li>
+<li><strong>Godzina:</strong> 9:00</li>
+<li><strong>Miejsce:</strong> Kraków, Błonia (Park Jordana)</li>
+<li><strong>Dla kogo:</strong> wszystkie kobiety – zarówno początkujące, jak i zaawansowane</li>
+<li><strong>Pierwszy trening:</strong> podział na dwie grupy – osobna ścieżka dla zupełnie początkujących, z dedykowaną trenerką</li>
+</ul>
+<p>Trening nie wymaga zapisów ani opłat. Udział odbywa się na odpowiedzialność uczestniczki; nie zapewniamy szatni ani toalety. Przed treningiem przeczytaj <a href="../dokumenty/regulamin-treningow-otwartych.pdf">regulamin treningów otwartych</a>.</p>
+<div class="post-photos">
+<img src="../img/1-sm.jpg" srcset="../img/1-sm.jpg 540w, ../img/1.jpg 1050w" sizes="(min-width: 760px) 22rem, 50vw" width="1050" height="1400" alt="Plakat: Rozbiegane – treningi biegowe tylko dla kobiet, treningi otwarte, Błonia i Park Jordana w Krakowie" loading="lazy" decoding="async">
+<img src="../img/kall-sm.jpg" srcset="../img/kall-sm.jpg 540w, ../img/kall.jpg 1050w" sizes="(min-width: 760px) 22rem, 50vw" width="1050" height="1400" alt="Kalendarz Wiosna 2026: 21.03 sobota, 12.04 niedziela, 16.05 sobota, godzina 9:00, Błonia Kraków" loading="lazy" decoding="async">
+</div>
+<p>Dołącz do nas, poczuj moc wspólnego biegania i zacznij swoją wiosenną przygodę! Masz pytania? Zapoznaj się z <a href="../oferta/">ofertą</a> lub <a href="../kontakt/">napisz do nas</a>.</p>
+      <aside class="cta-box">
+        <h2>{{CTA_HEADING}}</h2>
+        <p>{{CTA_TEXT}}</p>
+        <div class="actions"><a class="btn" href="../kontakt/">{{CTA_LABEL}}</a> <a class="btn btn-ghost" href="../oferta/">Zobacz ofertę</a></div>
+      </aside>
+    </article>
+  </main>
+  <!-- @include footer -->
+</body>
+</html>

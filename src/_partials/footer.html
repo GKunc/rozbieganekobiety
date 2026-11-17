@@ -1,21 +1,48 @@
   <footer class="site-footer">
-    <p>
-      &copy; <span id="year">{{YEAR}}</span> {{BRAND}} · <a href="{{ROOT}}privacy.html">Privacy</a>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand">{{BRAND}}</p>
+        <p>Dołącz do naszej społeczności pełnej pasji! Łączymy trening, relaks i dobrą zabawę.</p>
+      </div>
+      <div class="footer-cols">
+        <ul class="footer-links">
+          <li><a href="{{ROOT}}oferta/">Oferta</a></li>
+          <!-- @if HAS_POSTS -->
+          <li><a href="{{ROOT}}blog/">Aktualności</a></li>
+          <!-- @endif -->
+          <li><a href="{{ROOT}}o-nas/">O nas</a></li>
+          <li><a href="{{ROOT}}galeria/">Galeria</a></li>
+          <li><a href="{{ROOT}}kontakt/">Kontakt</a></li>
+        </ul>
+        <ul class="footer-links">
+          <li><a href="{{ROOT}}dokumenty/regulamin-treningow-otwartych.pdf">Regulamin treningów otwartych</a></li>
+          <li><a href="{{ROOT}}dokumenty/regulamin-grupy-zamknietej-2026.pdf">Regulamin grupy zamkniętej</a></li>
+          <li><a href="{{ROOT}}dokumenty/klauzula-informacyjna-rodo.pdf">Klauzula informacyjna RODO</a></li>
+        </ul>
+        <ul class="footer-links">
+          <li><a href="tel:+48570080490">+48&nbsp;570&nbsp;080&nbsp;490</a></li>
+          <li><a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></li>
+          <li><a href="https://www.facebook.com/obozy.dla.kobiet" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/obozysportowe.dlakobiet/" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-legal">
+      &copy; <span id="year">{{YEAR}}</span> {{LEGAL_ENTITY}} · <a href="{{ROOT}}privacy.html">Polityka prywatności</a>
       <!-- @if ANALYTICS=ga4 -->
-      · <button type="button" class="linklike" data-consent-open>Cookie settings</button>
+      · <button type="button" class="linklike" data-consent-open>Ustawienia cookies</button>
       <!-- @endif -->
       <!-- @if HAS_POSTS -->
-      · <a href="{{ROOT}}blog/">Blog</a> · <a href="{{ROOT}}blog/feed.xml">RSS</a>
+      · <a href="{{ROOT}}blog/feed.xml">RSS</a>
       <!-- @endif -->
     </p>
   </footer>
   <!-- @if ANALYTICS=ga4 -->
-  <!-- Cookie consent for Google Analytics (Consent Mode v2, nothing loads before "Accept"). Translate with the page. -->
-  <section id="consent" class="consent" aria-label="Cookie consent" data-ga="{{ANALYTICS_ID}}" hidden>
-    <p>We would like to use Google Analytics cookies to understand how visitors use this site. They are set only if you accept. <a href="{{ROOT}}privacy.html">Privacy policy</a></p>
+  <!-- Cookie consent for Google Analytics (Consent Mode v2, nothing loads before "Accept"). -->
+  <section id="consent" class="consent" aria-label="Zgoda na cookies" data-ga="{{ANALYTICS_ID}}" hidden>
+    <p>Chcemy używać plików cookies Google Analytics, żeby wiedzieć, jak odwiedzające korzystają ze strony. Ustawimy je tylko za Twoją zgodą. <a href="{{ROOT}}privacy.html">Polityka prywatności</a></p>
     <div class="consent-actions">
-      <button type="button" class="btn" data-consent="granted">Accept</button>
-      <button type="button" class="btn" data-consent="denied">Reject</button>
+      <button type="button" class="btn" data-consent="granted">Akceptuję</button>
+      <button type="button" class="btn" data-consent="denied">Odrzucam</button>
     </div>
   </section>
   <script src="{{ROOT}}js/consent.js" defer></script>

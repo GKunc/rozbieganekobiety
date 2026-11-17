@@ -1,0 +1,97 @@
+<!-- @vars
+{
+  "POST_TITLE": "Wiosenny camp – VI edycja obozu dla kobiet",
+  "POST_DESCRIPTION": "Relacja z wiosennego obozu biegowego dla kobiet: dwie grupy, poranne rozbiegania wokół jeziora, technika na płotkach, sprawność i regeneracja.",
+  "DATE": "2024-12-26",
+  "DATE_MODIFIED": "2025-07-09",
+  "POST_IMAGE": "",
+  "CTA_HEADING": "Chcesz pojechać na kolejny obóz?",
+  "CTA_TEXT": "Napisz do nas – damy znać o następnej edycji."
+}
+-->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>{{POST_TITLE}} | {{BRAND}}</title>
+  <meta name="description" content="{{POST_DESCRIPTION}}">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="{{POST_TITLE}}">
+  <meta property="og:description" content="{{POST_DESCRIPTION}}">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{POST_IMAGE}}">
+  <meta property="article:published_time" content="{{DATE}}">
+  <meta property="article:modified_time" content="{{DATE_MODIFIED}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{POST_TITLE}}">
+  <meta name="twitter:description" content="{{POST_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{POST_IMAGE}}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "{{PAGE_URL}}#article",
+        "headline": "{{POST_TITLE}}",
+        "description": "{{POST_DESCRIPTION}}",
+        "image": "{{POST_IMAGE}}",
+        "datePublished": "{{DATE}}",
+        "dateModified": "{{DATE_MODIFIED}}",
+        "inLanguage": "{{LANG}}",
+        "mainEntityOfPage": "{{PAGE_URL}}",
+        "author": { "@type": "Person", "name": "{{AUTHOR_NAME}}", "url": "{{AUTHOR_URL}}" },
+        "publisher": { "@id": "{{SITE_URL}}/#organization" },
+        "isPartOf": { "@id": "{{SITE_URL}}/blog/#blog" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "{{BRAND}}", "item": "{{SITE_URL}}/" },
+          { "@type": "ListItem", "position": 2, "name": "Aktualności", "item": "{{SITE_URL}}/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "{{POST_TITLE}}", "item": "{{PAGE_URL}}" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+  <main id="main" class="section">
+    <nav class="breadcrumb" aria-label="Okruszki">
+      <ol>
+        <li><a href="../">{{BRAND}}</a></li>
+        <li><a href="./">Aktualności</a></li>
+        <li aria-current="page">{{POST_TITLE}}</li>
+      </ol>
+    </nav>
+    <article>
+      <h1>{{POST_TITLE}}</h1>
+      <p class="post-meta">
+        {{AUTHOR_NAME}} · Opublikowano <time datetime="{{DATE}}">{{DATE}}</time>
+        · Aktualizacja <time datetime="{{DATE_MODIFIED}}">{{DATE_MODIFIED}}</time>
+      </p>
+      <!-- Post body goes here: h2/h3, paragraphs, lists. The title above is the only h1. -->
+      <p>To był wyjątkowy marcowy weekend, który dał nam mnóstwo energii, motywacji i kobiecej siły!</p>
+<p>Podzieliłyśmy się na dwie grupy – początkującą i zaawansowaną – tak, by każda uczestniczka mogła trenować na swoim poziomie i w swoim tempie. W planie znalazło się wiele różnorodnych aktywności: poranne rozbiegania wokół jeziora, technika biegowa na płotkach i drabinkach przy zachodzie słońca, a także ćwiczenia sprawnościowe, które poprawiały naszą koordynację, siłę i mobilność.</p>
+<div class="post-photos one">
+<img src="../img/77f4ebb6-407a-4eb7-b851-ad75c9ea933b-sm.jpg" srcset="../img/77f4ebb6-407a-4eb7-b851-ad75c9ea933b-sm.jpg 720w, ../img/77f4ebb6-407a-4eb7-b851-ad75c9ea933b.jpg 1400w" sizes="(min-width: 760px) 44rem, 100vw" width="1400" height="1050" alt="Uczestniczki wiosennego obozu dla kobiet podczas ćwiczeń o zachodzie słońca" loading="lazy" decoding="async">
+</div>
+<p>Nie zabrakło też aktywnej regeneracji – wspólne spacery, rozciąganie, rozmowy i dużo śmiechu sprawiły, że każda z nas mogła złapać balans między wysiłkiem a odpoczynkiem.</p>
+<p>Obóz był nie tylko czasem pracy nad formą, ale też chwilą oddechu i prawdziwej kobiecej wspólnoty. Dziękujemy wszystkim uczestniczkom za obecność, zaangażowanie i wspólną atmosferę – takie chwile zostają z nami na długo.</p>
+      <aside class="cta-box">
+        <h2>{{CTA_HEADING}}</h2>
+        <p>{{CTA_TEXT}}</p>
+        <div class="actions"><a class="btn" href="../kontakt/">{{CTA_LABEL}}</a> <a class="btn btn-ghost" href="../oferta/">Zobacz ofertę</a></div>
+      </aside>
+    </article>
+  </main>
+  <!-- @include footer -->
+</body>
+</html>
