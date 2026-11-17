@@ -3,7 +3,7 @@
 // fills it with tools/fixture/site.config.json plus one blog post made from blog/_template.html,
 // and runs the real tools on it. Run after any change to tools/, src/ structure or the workflow.
 // Usage: node tools/selftest.mjs [--lighthouse]
-import { spawnSync } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { cpSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -29,6 +29,16 @@ const post = readFileSync(join(tmp, 'src/blog/_template.html'), 'utf8')
 writeFileSync(join(tmp, 'src/blog/how-often-to-water.html'), post);
 
 let failed = false;
+async function runAsync(name, script, args = [], opts = {}) {
+  // Like run(), but does not block the event loop (a local server may be answering the tool).
+  const { expectFail = false, env = {} } = opts;
+  console.log(`\n━━ ${name}`);
+  const status = await new Promise((done) => spawn(process.execPath, [join(tmp, script), ...args], { cwd: tmp, stdio: 'inherit', env: { ...process.env, ...env } }).on('exit', done));
+  const ok = expectFail ? status !== 0 : status === 0;
+  console.log(ok ? `✔ ${name}` : `✘ ${name}${expectFail ? ' (expected a failure, but it passed)' : ''}`);
+  if (!ok) failed = true;
+}
+
 function run(name, script, args = [], { expectFail = false, env = {} } = {}) {
   console.log(`\n━━ ${name}`);
   const r = spawnSync(process.execPath, [join(tmp, script), ...args], { cwd: tmp, stdio: 'inherit', env: { ...process.env, ...env } });
@@ -70,6 +80,52 @@ writeFileSync(join(tmp, 'emails/autoreply.html'), readFileSync(join(ROOT, 'email
 withConfig({ EMAIL_FROM: '' });
 run('Guard: the form worker without a sender address must be rejected', 'tools/check.mjs', [], FAILS);
 withConfig({});
+// Live-site monitor against a local copy of the built site.
+{
+  spawnSync(process.execPath, [join(tmp, 'tools/build.mjs')], { cwd: tmp });
+  const server = spawn(process.execPath, ['-e', `
+    const http=require('http'),fs=require('fs'),path=require('path');const root=${JSON.stringify(join(tmp, '_site'))};
+    http.createServer((q,r)=>{let p=path.join(root,decodeURIComponent(q.url.split('?')[0]));if(p.endsWith('/'))p+='index.html';
+      fs.readFile(p,(e,b)=>{r.writeHead(e?404:200);r.end(e?'':b)})}).listen(4398,()=>console.log('up'))`]);
+  await new Promise((done) => server.stdout.once('data', done));
+  const local = ['--url', 'http://127.0.0.1:4398/', '--skip', 'external,worker,tls,github'];
+  await runAsync('Monitor: healthy site passes', 'tools/monitor.mjs', local);
+  rmSync(join(tmp, '_site/llms.txt'));
+  await runAsync('Monitor: a missing file on the live site is reported', 'tools/monitor.mjs', local, { expectFail: true });
+  server.kill();
+}
+
+// Template update: a site made from template v1 receives v2.
+{
+  const tpl = join(tmp, '.tpl-repo');
+  const site = join(tmp, '.site-repo');
+  const g = (cwd, ...a) => spawnSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@t.t', ...a], { cwd, encoding: 'utf8' });
+  for (const d of [tpl, site]) { rmSync(d, { recursive: true, force: true }); cpSync(ROOT, d, { recursive: true, filter: (p) => !SKIP.has(p.slice(ROOT.length + 1).split(/[\\/]/)[0]) && !p.includes('.tpl-repo') }); g(d, 'init', '-q'); }
+  g(tpl, 'add', '-A'); g(tpl, 'commit', '-qm', 'v1');
+  const v1 = g(tpl, 'rev-parse', 'HEAD').stdout.trim();
+  // The site: filled config and its own headline; template v2: tool change, CSS change, new config key.
+  writeFileSync(join(site, 'site.config.json'), fixture);
+  writeFileSync(join(site, 'src/index.html'), readFileSync(join(site, 'src/index.html'), 'utf8').replace('<p class="lead">', '<p class="lead" data-site="own">'));
+  writeFileSync(join(site, '.template-version'), v1 + '\n');
+  for (const f of ['og.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'blog/how-often-to-water.html']) cpSync(join(tmp, 'src', f), join(site, 'src', f));
+  g(site, 'add', '-A'); g(site, 'commit', '-qm', 'site');
+  writeFileSync(join(tpl, 'tools/lib.mjs'), readFileSync(join(tpl, 'tools/lib.mjs'), 'utf8') + '\n// template v2\n');
+  writeFileSync(join(tpl, 'src/css/styles.css'), readFileSync(join(tpl, 'src/css/styles.css'), 'utf8') + '\n/* template v2 */\n');
+  writeFileSync(join(tpl, 'site.config.json'), readFileSync(join(tpl, 'site.config.json'), 'utf8').replace(/\n}\s*$/, ',\n  "NEW_SETTING": ""\n}\n'));
+  g(tpl, 'add', '-A'); g(tpl, 'commit', '-qm', 'v2');
+  const v2 = g(tpl, 'rev-parse', 'HEAD').stdout.trim();
+  await runAsync('Template update applies v2 to a site made from v1', 'tools/template-update.mjs', ['--dir', site, '--commit'], { env: { TEMPLATE_URL: tpl, ALLOW_FILLER: '1' } });
+  const ok = readFileSync(join(site, 'tools/lib.mjs'), 'utf8').includes('template v2')
+    && readFileSync(join(site, 'src/css/styles.css'), 'utf8').includes('template v2')
+    && readFileSync(join(site, 'src/index.html'), 'utf8').includes('data-site="own"')
+    && JSON.parse(readFileSync(join(site, 'site.config.json'), 'utf8')).NEW_SETTING === ''
+    && JSON.parse(readFileSync(join(site, 'site.config.json'), 'utf8')).BRAND === JSON.parse(fixture).BRAND
+    && readFileSync(join(site, '.template-version'), 'utf8').trim() === v2;
+  console.log(ok ? '✔ Template update: tool replaced, CSS merged, site edits and settings kept, new key added' : '✘ Template update result is wrong');
+  if (!ok) failed = true;
+  rmSync(tpl, { recursive: true, force: true }); rmSync(site, { recursive: true, force: true });
+}
+
 run('Google tool (dry run)', 'tools/google.mjs', ['search-console', '--owners', 'owner@example.com', '--dry-run']);
 run('Form test (shows what it would send, sends nothing)', 'tools/form-test.mjs');
 

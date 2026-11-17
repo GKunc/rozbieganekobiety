@@ -7,6 +7,8 @@ description: Periodic health check of a live landing (deploy status, Lighthouse,
 
 Report a short prioritized list (what is wrong, impact, fix), then fix what you can and ask about the rest.
 
+Start with `node tools/monitor.mjs --lighthouse`: it checks the live site the same way the weekly CI monitor does (pages and key files, last deploy, certificate, outbound links, form worker in step with the repo, Search Console tag, Lighthouse budgets). An open "Site monitor" issue in the repo (`gh issue list --label monitor`) lists what it found. The steps below cover what it cannot judge.
+
 1. **Deploys**: `gh run list --limit 10`. Any failed run on `main` means the live site is older than the repo; open it with `gh run view --log-failed`.
 2. **Dependency updates**: merge open Dependabot PRs for GitHub Actions once their checks pass (`gh pr list --author app/dependabot`).
 3. **Release checks**: `node tools/check.mjs`; fix errors, consider warnings.

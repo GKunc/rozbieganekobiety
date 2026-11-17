@@ -78,6 +78,9 @@ check('email service down: 502 so the page shows the error', r.status === 502 &&
 resendFails = false;
 const get = await worker.fetch(new Request('https://form.test/'), env);
 check('GET is refused', get.status === 405);
+const ver = await worker.fetch(new Request('https://form.test/?version'), env);
+const { workerSource } = await import('./form-worker.mjs');
+check('GET ?version reports the built version', (await ver.json()).version === workerSource(config).site.version);
 
 globalThis.fetch = realFetch;
 console.log(failed ? `\n${failed} worker test(s) failed` : '\nAll worker tests passed');

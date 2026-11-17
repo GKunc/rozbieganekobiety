@@ -60,6 +60,10 @@ The user does the sign-ups in their browser; guide them, never handle the keys y
    `{ "RESEND_API_KEY": "re_…", "TURNSTILE_SECRET_KEY": "0x…" }`
    `node tools/form-worker.mjs secrets` reads it and passes the values straight to Cloudflare without printing them.
 
+### Form worker deploys from CI (optional, recommended for sites the client edits)
+Then email changes go live with every push, and the monitor never finds a stale worker. The user creates a Cloudflare API token (dashboard → My Profile → API Tokens → template "Edit Cloudflare Workers") and sets it themselves in a terminal, so the token never passes through Claude:
+`gh secret set CLOUDFLARE_API_TOKEN` (paste when asked) and `gh secret set CLOUDFLARE_ACCOUNT_ID` (from the dashboard sidebar).
+
 ## 6. Search engines
 ### Google Search Console (automatic once the service account exists)
 1. `node tools/google.mjs check`. If it says there is no key, do "Google, one-time set-up" below first, or fall back to the manual way.

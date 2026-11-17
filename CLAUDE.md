@@ -35,5 +35,10 @@ One repo per landing page. Start with the `new-landing` skill; hosting is handle
 3. After pushing: `gh run watch` succeeds and the live URL returns 200.
 4. Changed `tools/`, the partials or the workflow in the template itself → `node tools/selftest.mjs` passes.
 
+## History and template
+- Commit messages are read by non-technical people (`node tools/history.mjs`, `undo` skill): say in plain words what changed on the site ("New FAQ question about delivery times"), not how.
+- Never rewrite history (`reset --hard`, `push --force`, amending pushed commits). Undo = `node tools/history.mjs undo`.
+- Files listed as `owned` in `template.json` belong to the template and are replaced by template updates (`maintenance` skill): do not edit them in a site repo.
+
 ## Skills (`.claude/skills/`)
-dev-setup, new-landing, publish, domain-knowledge, seo, blog-post, emails, audit, webmcp
+dev-setup, new-landing, publish, domain-knowledge, seo, blog-post, emails, audit, undo, handoff, maintenance, webmcp

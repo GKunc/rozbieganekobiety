@@ -15,9 +15,9 @@ concurrency:
 
 jobs:
   build:
-    # The template repo itself is all {{placeholders}}; everything runs in repos created from it.
-    if: ${{ !github.event.repository.is_template }}
     runs-on: ubuntu-latest
+    outputs:
+      configured: ${{ steps.mode.outputs.configured }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,40 +26,39 @@ jobs:
         with:
           node-version: 22
 
+      # A site has BRAND set in site.config.json. The untouched template has not: there we test the
+      # template itself on a fixture site instead of deploying it.
+      - id: mode
+        run: node -e 'const c=require("./site.config.json");console.log("configured="+Boolean(String(c.BRAND||"").trim()))' >> "$GITHUB_OUTPUT"
+
+      - name: Template self-test (node tools/selftest.mjs --lighthouse)
+        if: steps.mode.outputs.configured != 'true'
+        run: node tools/selftest.mjs --lighthouse
+
       # One command, the same one people run locally: build, release checks, HTML validation,
       # internal links and Lighthouse budgets. Tool versions are pinned in tools/lib.mjs.
       - name: Verify (node tools/verify.mjs --lighthouse)
+        if: steps.mode.outputs.configured == 'true'
         run: node tools/verify.mjs --lighthouse
 
       - name: Keep Lighthouse report
-        if: always()
+        if: always() && steps.mode.outputs.configured == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse
           path: .lighthouseci
           if-no-files-found: ignore
 
-      - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      - if: steps.mode.outputs.configured == 'true' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
-      - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      - if: steps.mode.outputs.configured == 'true' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
-  selftest:
-    # Only in the template repo: fill a copy with tools/fixture and run the real tools on it.
-    if: ${{ github.event.repository.is_template }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - run: node tools/selftest.mjs --lighthouse
-
   deploy:
     needs: build
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: needs.build.outputs.configured == 'true' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -91,3 +90,12 @@ jobs:
       - name: Notify search engines (IndexNow -> Bing, ChatGPT search, Copilot)
         continue-on-error: true
         run: node tools/indexnow.mjs "${{ github.event.before }}"
+      # Keeps the form emails in step with emails/ on every deploy. Optional: needs the repo secrets
+      # CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID (publish skill, "Form worker deploys from CI").
+      - name: Deploy contact form worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then echo "No CLOUDFLARE_API_TOKEN secret: the worker is deployed by hand (node tools/form-worker.mjs deploy)."; exit 0; fi
+          node tools/form-worker.mjs deploy --ci

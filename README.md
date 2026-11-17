@@ -12,7 +12,10 @@ Claude creates the page repo from this template, switches on hosting, fills the 
 - new computer / "the preview doesn't work" → `dev-setup` skill (installs tools, git hooks, live-reload preview)
 - "write a blog post about …" → `blog-post` skill
 - "check SEO" / "why don't we show up in ChatGPT?" → `seo` skill
-- "is the site OK?" (monthly) → `audit` skill
+- "is the site OK?" → `audit` skill (the live site is also checked every Monday; problems open a GitHub issue)
+- "undo the last change" → `undo` skill
+- "hand the site over to the client" → `handoff` skill
+- "update all client sites" (in the template repo) → `maintenance` skill
 - "put it on example.com" → `publish` skill
 
 ## What's inside
@@ -33,6 +36,11 @@ Claude creates the page repo from this template, switches on hosting, fills the 
 | `tools/form-worker.mjs` | Builds the worker with the email templates, deploys it, sets its secrets |
 | `tools/test-worker.mjs` | Tests the worker locally against fake email/anti-bot services |
 | `tools/form-test.mjs` | Sends a real test enquiry (`--send`): notification + autoreply |
+| `tools/monitor.mjs` | Checks the live site; weekly in CI (`.github/workflows/monitor.yml`), problems open a GitHub issue |
+| `tools/history.mjs` | Site changes in plain words; `undo <n>` reverses one |
+| `template.json`, `tools/template-update.mjs` | Which files belong to the template; brings a site up to date with it (`.template-version`) |
+| `tools/fleet.mjs` | From the template repo: status of every client site, roll template updates out |
+| `GUIDE.md` | Short guide for the client, translated at handoff |
 | `src/js/consent.js` | GA4 behind a cookie banner (Consent Mode v2; nothing loads before "Accept") |
 | `tools/doctor.mjs` | Checks this computer is ready to develop; `--fix` sets up hooks and the preview |
 | `.githooks/` | pre-commit: release checks; pre-push: `verify.mjs --quick` |
@@ -42,7 +50,7 @@ Claude creates the page repo from this template, switches on hosting, fills the 
 | `.github/workflows/pages.yml` | On PRs: `verify.mjs --lighthouse`. On `main`: the same → deploy → smoke test → IndexNow. In the template repo: `selftest.mjs` |
 | `.github/dependabot.yml` | Keeps the workflow's actions up to date |
 | `lighthouserc.json` | Lighthouse budgets: performance ≥ 0.9; accessibility, best practices, SEO ≥ 0.95; CLS ≤ 0.1 |
-| `.claude/skills/` | dev-setup, new-landing, publish, domain-knowledge, seo, blog-post, emails, audit, webmcp |
+| `.claude/skills/` | dev-setup, new-landing, publish, domain-knowledge, seo, blog-post, emails, audit, undo, handoff, maintenance, webmcp |
 | `.claude/launch.json` | Local preview server (`node tools/serve.mjs 4321`, live reload) |
 | `.mcp.json` | Chrome DevTools MCP for checking pages while developing |
 

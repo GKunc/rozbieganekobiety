@@ -67,6 +67,10 @@ export default {
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 204, headers: { ...cors, 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Allow-Headers': 'Accept, Content-Type', 'Access-Control-Max-Age': '86400' } });
     }
+    if (request.method === 'GET' && new URL(request.url).searchParams.has('version')) {
+      // Lets tools/monitor.mjs check that the live emails match the repo (no secrets, no side effects).
+      return new Response(JSON.stringify({ version: SITE.version }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
+    }
     if (request.method !== 'POST') return new Response('This address only accepts the contact form.', { status: 405, headers: { Allow: 'POST' } });
     if (!allowed) return respond(403, 'wrong_origin');
 
