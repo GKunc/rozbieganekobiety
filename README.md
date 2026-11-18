@@ -47,7 +47,7 @@ Claude creates the page repo from this template, switches on hosting, fills the 
 | `tools/check.mjs` | Release checks (missing values, filler copy, meta, unique titles, JSON-LD, FAQ schema, blog posts) |
 | `tools/make-assets.mjs` | Generates `og.png` and app icons from the brand (needs local Chrome) |
 | `tools/indexnow.mjs` | Notifies Bing/IndexNow of changed URLs after each deploy |
-| `.github/workflows/pages.yml` | On PRs and pushes to `main`: `verify.mjs --lighthouse`, where Lighthouse checks only the pages whose built output changed since the last successful deploy (none → skipped; `lighthouserc.json` changed, first deploy or Run workflow by hand → every page). On `main` then → deploy → smoke test → IndexNow. In the template repo: `selftest.mjs` |
+| `.github/workflows/pages.yml` | On PRs and pushes to `main`: `verify.mjs --lighthouse`, where Lighthouse checks only the pages whose built output changed since the last successful deploy (more than 5 → 5 random ones; none → skipped; `lighthouserc.json` changed, first deploy or Run workflow by hand → every page). On `main` then → deploy → smoke test → IndexNow. In the template repo: `selftest.mjs` |
 | `.github/dependabot.yml` | Keeps the workflow's actions up to date |
 | `lighthouserc.json` | Lighthouse budgets: performance ≥ 0.9; accessibility, best practices, SEO ≥ 0.95; CLS ≤ 0.1 |
 | `.claude/skills/` | dev-setup, new-landing, publish, domain-knowledge, seo, blog-post, emails, audit, undo, handoff, maintenance, webmcp |

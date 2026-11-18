@@ -140,7 +140,7 @@ withConfig({});
     const out = r.stdout + r.stderr;
     const got = out.includes('Lighthouse not needed') ? [] : out.includes('Auditing every page') ? 'all'
       : [...out.matchAll(/^ {2}(\S+\.html)$/gm)].map((m) => m[1]).sort();
-    const ok = r.status === 0 && JSON.stringify(got) === JSON.stringify(expected);
+    const ok = r.status === 0 && (typeof expected === 'function' ? expected(got) : JSON.stringify(got) === JSON.stringify(expected));
     console.log(ok ? `✔ Lighthouse pages: ${name}` : `✘ Lighthouse pages: ${name}: expected ${JSON.stringify(expected)}, got ${JSON.stringify(got)}\n${out}`);
     if (!ok) failed = true;
   };
@@ -150,8 +150,9 @@ withConfig({});
   pick('a blog post text changed -> only that post', editPost('once a week.</p>', 'once a week, less in winter.</p>'), ['blog/how-often-to-water.html']);
   pick('a blog post description changed -> that post and the blog index', editPost('Here is how to tell.', 'Here is how to check.'), ['blog/how-often-to-water.html', 'blog/index.html']);
   pick('only emails changed -> no Lighthouse', () => append('emails/autoreply.txt', '\n'), []);
-  pick('the stylesheet changed -> every page that loads it', () => append('src/css/styles.css', '\n/* selftest */\n'),
-    (() => { spawnSync(process.execPath, ['tools/build.mjs'], { cwd: repo }); return walk(join(repo, '_site')).filter((p) => p.endsWith('.html') && readFileSync(p, 'utf8').includes('styles.css')).map((p) => rel(p, join(repo, '_site'))).sort(); })());
+  const usesCss = (() => { spawnSync(process.execPath, ['tools/build.mjs'], { cwd: repo }); return walk(join(repo, '_site')).filter((p) => p.endsWith('.html') && readFileSync(p, 'utf8').includes('styles.css')).map((p) => rel(p, join(repo, '_site'))).sort(); })();
+  pick('the stylesheet changed -> 5 random pages that load it (all of them if 5 or fewer)', () => append('src/css/styles.css', '\n/* selftest */\n'),
+    (got) => Array.isArray(got) && got.length === Math.min(5, usesCss.length) && got.every((p) => usesCss.includes(p)));
   pick('Lighthouse budgets changed -> every page', () => append('lighthouserc.json', '\n'), 'all');
   rmSync(repo, { recursive: true, force: true });
 }
