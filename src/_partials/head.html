@@ -8,7 +8,7 @@
   <!-- @if HAS_POSTS -->
   <link rel="alternate" type="application/rss+xml" title="{{BRAND}} blog" href="{{ROOT}}blog/feed.xml">
   <!-- @endif -->
-  <script>document.documentElement.classList.add('js')</script>
+  <script>(function(d){d.classList.add('js');var t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t==='light'||t==='dark')d.setAttribute('data-theme',t);if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches))d.classList.add('is-dark')})(document.documentElement)</script>
   <link rel="stylesheet" href="{{ROOT}}css/styles.css">
   <!-- Analytics: chosen with ANALYTICS / ANALYTICS_ID in site.config.json. GA4 loads only after consent (js/consent.js). -->
   <!-- @if ANALYTICS=plausible -->

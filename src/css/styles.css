@@ -18,13 +18,21 @@
   --max: 1160px;
   color-scheme: light dark;
 }
+/* Dark: follows the system, unless the visitor picked a theme with the header switch (data-theme on <html>). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #160d13; --text: #f7ecf1; --muted: #c4aab7; --card: #241720; --line: #3a2532;
     --accent: #ff8fbf; --accent-text: #22101a; --coral: #ff9a7d; --peach: #4a2230;
     --ink-block: #2b1623; --ink-block-text: #fbeef3;
   }
 }
+:root[data-theme="dark"] {
+  --bg: #160d13; --text: #f7ecf1; --muted: #c4aab7; --card: #241720; --line: #3a2532;
+  --accent: #ff8fbf; --accent-text: #22101a; --coral: #ff9a7d; --peach: #4a2230;
+  --ink-block: #2b1623; --ink-block-text: #fbeef3;
+  color-scheme: dark;
+}
+:root[data-theme="light"] { color-scheme: light; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
 @media (prefers-reduced-motion: reduce) {
@@ -53,6 +61,14 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var
 .site-header nav a:not(.btn):hover { color: var(--accent); }
 .menu-toggle { display: none; place-items: center; flex: none; width: 44px; height: 44px; padding: 0; border: 2px solid var(--text); border-radius: 50%; background: transparent; color: var(--text); cursor: pointer; }
 .menu-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.theme-toggle { display: none; place-items: center; flex: none; width: 44px; height: 44px; padding: 0; border: 2px solid var(--line); border-radius: 50%; background: transparent; color: var(--text); cursor: pointer; }
+.js .theme-toggle { display: grid; }
+.theme-toggle:hover { border-color: var(--text); }
+.theme-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.theme-label { display: none; }
+.theme-toggle .icon-sun { display: none; }
+.is-dark .theme-toggle .icon-sun { display: block; }
+.is-dark .theme-toggle .icon-moon { display: none; }
 @media (max-width: 720px) {
   .site-header { gap: .6rem .5rem; }
   .brand { font-size: 1.1rem; }
@@ -64,6 +80,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var
   .js .site-header nav { display: none; flex-direction: column; align-items: stretch; gap: 0; margin-top: .4rem; border-top: 1px solid var(--line); }
   .js .site-header nav.is-open { display: flex; }
   .js .site-header nav a { padding: .85rem 0; font-size: 1.05rem; border-bottom: 1px solid var(--line); }
+  /* In the folded phone menu the switch is a labelled row like the links. */
+  .js .site-header nav .theme-toggle { display: flex; align-items: center; gap: .6rem; width: auto; height: auto; padding: .85rem 0; border: 0; border-radius: 0; font: 500 1.05rem/1.4 var(--sans); text-align: left; }
+  .theme-label { display: inline; }
 }
 
 /* Buttons and links */
