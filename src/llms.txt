@@ -10,7 +10,7 @@
 - Cennik grupy: 80 zł (udział 1× w tygodniu, kontakt z grupą i trenerkami, porady biegowe); 300 zł z indywidualnym planem treningowym.
 - Treningi indywidualne: konsultacja 250 zł, pakiet 4 treningów 600 zł, pakiet 8 treningów 1100 zł; plany treningowe 250–800 zł (po pakiecie treningów).
 - Otwarte, darmowe treningi dla kobiet ogłaszamy w aktualnościach.
-- Obozy biegowe dla kobiet na każdym poziomie, także z zajęciami dla kobiet, które nie mogą biegać.
+- Obozy biegowe dla kobiet: weekendowe wyjazdy w dwóch grupach (początkująca i zaawansowana), technika biegu, nordic walking, sprawność, basen i regeneracja; także zajęcia dla kobiet, które nie mogą biegać. Edycje m.in. Skomielna Czarna (2024), Bystra (2024), wiosenny camp (VI edycja, 2025).
 - Trenerka: Magdalena Kunc – instruktorka PZLA, trenerka personalna, instruktorka fitnessu PROFI Fitness School.
 - Kontakt: tel. +48 570 080 490, {{CONTACT_EMAIL}}
 
@@ -18,6 +18,7 @@
 
 - [Strona główna]({{SITE_URL}}/): {{PAGE_TITLE}}
 - [Oferta i cennik]({{SITE_URL}}/oferta/): treningi grupowe i indywidualne
+- [Obozy biegowe dla kobiet]({{SITE_URL}}/obozy/): program, poprzednie edycje, pytania o wyjazdy
 - [O nas]({{SITE_URL}}/o-nas/): trenerka Magdalena Kunc i misja grupy
 - [Galeria]({{SITE_URL}}/galeria/): zdjęcia z treningów i obozów
 - [Kontakt]({{SITE_URL}}/kontakt/): zapisy na treningi, telefon, e-mail

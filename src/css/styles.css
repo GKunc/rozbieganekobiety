@@ -124,7 +124,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var
 .offer-alt .tag { background: var(--accent-text); color: var(--accent); }
 .tag { display: inline-block; align-self: flex-start; margin: 0; padding: .3rem .8rem; border-radius: 999px; background: var(--accent); color: var(--accent-text); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .offer::after { content: ""; position: absolute; right: -60px; top: -60px; width: 180px; height: 180px; border-radius: 50%; border: 14px solid var(--coral); opacity: .35; }
-@media (min-width: 760px) { .offers { grid-template-columns: 1fr 1fr; } .offer { padding: 2.75rem 2.5rem; min-height: 22rem; } }
+@media (min-width: 760px) { .offers { grid-template-columns: 1fr 1fr; } .offer { padding: 2.75rem 2.5rem; min-height: 22rem; } .offer-wide { grid-column: 1 / -1; min-height: 0; } }
 
 /* Steps */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; counter-reset: none; }
@@ -304,3 +304,9 @@ main.section > article strong { color: var(--text); }
 .contact-card .btn-invert { background: var(--coral); border-color: var(--coral); color: #22141c; }
 .offer .tag { color: var(--accent-text); margin: 0; }
 .offer-alt .tag { color: var(--accent); }
+
+/* Author note under blog posts */
+.author-box { display: flex; gap: 1rem; align-items: center; margin: 2.5rem 0 1.5rem; padding: 1.25rem; border-radius: var(--radius); background: var(--card); }
+.author-box img { width: 4.5rem; height: 4.5rem; object-fit: cover; object-position: top; border-radius: 50%; flex: none; }
+.author-box p { margin: 0; color: var(--muted); font-size: .95rem; }
+.author-box .author-name { color: inherit; font-weight: 700; margin-bottom: .25rem; }

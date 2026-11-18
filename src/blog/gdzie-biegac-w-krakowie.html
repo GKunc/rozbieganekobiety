@@ -1,0 +1,105 @@
+<!-- @vars
+{
+  "POST_TITLE": "Gdzie biegać w Krakowie? Miejsca naszych treningów",
+  "POST_DESCRIPTION": "Błonia i Park Jordana, Park Lotników, Zalew Bagry, Park Bednarskiego i Nowa Huta – gdzie trenują Rozbiegane i co tam robimy na treningach dla kobiet.",
+  "DATE": "2026-11-18",
+  "DATE_MODIFIED": "2026-11-18",
+  "POST_IMAGE": "",
+  "CTA_HEADING": "Pobiegnij z nami",
+  "CTA_TEXT": "Grupa Rozbiegane trenuje w każdy poniedziałek o 19:00 na Błoniach / w Parku Jordana. Cennik znajdziesz w ofercie."
+}
+-->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>{{POST_TITLE}} | {{BRAND}}</title>
+  <meta name="description" content="{{POST_DESCRIPTION}}">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="{{POST_TITLE}}">
+  <meta property="og:description" content="{{POST_DESCRIPTION}}">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{POST_IMAGE}}">
+  <meta property="article:published_time" content="{{DATE}}">
+  <meta property="article:modified_time" content="{{DATE_MODIFIED}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{POST_TITLE}}">
+  <meta name="twitter:description" content="{{POST_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{POST_IMAGE}}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "{{PAGE_URL}}#article",
+        "headline": "{{POST_TITLE}}",
+        "description": "{{POST_DESCRIPTION}}",
+        "image": "{{POST_IMAGE}}",
+        "datePublished": "{{DATE}}",
+        "dateModified": "{{DATE_MODIFIED}}",
+        "inLanguage": "{{LANG}}",
+        "mainEntityOfPage": "{{PAGE_URL}}",
+        "author": { "@type": "Person", "name": "{{AUTHOR_NAME}}", "url": "{{AUTHOR_URL}}" },
+        "publisher": { "@id": "{{SITE_URL}}/#organization" },
+        "isPartOf": { "@id": "{{SITE_URL}}/blog/#blog" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "{{BRAND}}", "item": "{{SITE_URL}}/" },
+          { "@type": "ListItem", "position": 2, "name": "Aktualności", "item": "{{SITE_URL}}/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "{{POST_TITLE}}", "item": "{{PAGE_URL}}" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+  <main id="main" class="section">
+    <nav class="breadcrumb" aria-label="Okruszki">
+      <ol>
+        <li><a href="../">{{BRAND}}</a></li>
+        <li><a href="./">Aktualności</a></li>
+        <li aria-current="page">{{POST_TITLE}}</li>
+      </ol>
+    </nav>
+    <article>
+      <h1>{{POST_TITLE}}</h1>
+      <p class="post-meta">
+        {{AUTHOR_NAME}} · Opublikowano <time datetime="{{DATE}}">{{DATE}}</time>
+        · Aktualizacja <time datetime="{{DATE_MODIFIED}}">{{DATE_MODIFIED}}</time>
+      </p>
+      <p>Kraków ma wiele dobrych miejsc do biegania – parki, bieżnie tartanowe i trasy wokół wody. Poniżej miejsca, w których <strong>Rozbiegane</strong> prowadziły treningi dla kobiet, z krótkim opisem tego, co tam robiłyśmy.</p>
+<h2>Błonia i Park Jordana</h2>
+<p>Nasza główna baza. Grupa Rozbiegane spotyka się tu w <strong>każdy poniedziałek o 19:00</strong>. Na Błoniach odbywały się też otwarte treningi: wrześniowe poniedziałki 2026 i wiosenny cykl 2026 (w soboty lub niedziele o 9:00). W Parku Jordana zbiórka na treningach otwartych była pod głównym wejściem, przy okrąglaku. Trening zaczyna się rozgrzewką, potem jest część biegowa i wspólne ćwiczenia. <a href="babskie-lato-sierpien.html">Relacja z treningu w Parku Jordana</a>.</p>
+<h2>Park Lotników</h2>
+<p>Dobre miejsce na bieganie po nierównym terenie. Na listopadowym treningu z serii „Rozbiegajmy kobiety” w części głównej był jesienny cross, a po treningu kawa na „Krakowskich Malediwach”. <a href="rozbiegajmy-kobiety-park-lotnikow.html">Relacja z Parku Lotników</a>.</p>
+<h2>Park im. Wojciecha Bednarskiego (Podgórze)</h2>
+<p>Tu łączyłyśmy park z bieżnią tartanową. Zaczęłyśmy od ćwiczeń w parku – indywidualnie, w parach i w grupie – a po rozgrzewce przeszłyśmy na bieżnię na interwały. <a href="rozbiegajmy-kobiety-park-bednarskiego.html">Relacja z grudniowego treningu</a>.</p>
+<h2>Zalew Bagry</h2>
+<p>Miejsce na spokojne, poranne bieganie. Nad Bagrami odbył się przedświąteczny trening z ćwiczeniami dynamicznymi i pierwszy otwarty trening w 2025 roku (zbiórka obok parkingu, przy boisku). <a href="przedswiateczny-trening-na-bagrach.html">Relacja z Bagrów</a>.</p>
+<h2>Bieżnia przy VIII LO</h2>
+<p>Tu trenowałyśmy technikę biegu i sprawność biegacza na otwartych treningach latem 2025 roku. <a href="treningi-grupowe-otwarte-lato-2025.html">Zobacz, jak wyglądał trening</a>.</p>
+<h2>Nowa Huta</h2>
+<p>Wspólne rozbieganie z Muzeum Nowej Huty: około 10–12&nbsp;km w tempie 6:00–6:20&nbsp;min/km, a potem rozmowy. <a href="rozbieganie-w-nowej-hucie-28-lutego.html">Szczegóły tamtego biegu</a>.</p>
+<h2>Gdzie spotkamy się najbliżej?</h2>
+<p>Stałe treningi grupy odbywają się na Błoniach / w Parku Jordana. Terminy i miejsca bezpłatnych treningów otwartych ogłaszamy w <a href="./">aktualnościach</a>. Chcesz trenować indywidualnie, w miejscu dopasowanym do Ciebie? Zobacz <a href="../oferta/#indywidualnie">współpracę 1:1</a>.</p>
+      <!-- @include author -->
+      <aside class="cta-box">
+        <h2>{{CTA_HEADING}}</h2>
+        <p>{{CTA_TEXT}}</p>
+        <div class="actions"><a class="btn" href="../kontakt/">{{CTA_LABEL}}</a> <a class="btn btn-ghost" href="../oferta/">Zobacz ofertę</a></div>
+      </aside>
+    </article>
+  </main>
+  <!-- @include footer -->
+</body>
+</html>

@@ -36,6 +36,7 @@
         "@type": "SportsOrganization",
         "@id": "{{SITE_URL}}/#organization",
         "name": "{{BRAND}}",
+        "alternateName": ["Rozbiegane Kobiety", "Rozbiegane – grupa biegowa dla kobiet", "Obozy dla kobiet"],
         "slogan": "W kobietach siła",
         "url": "{{SITE_URL}}/",
         "logo": "{{SITE_URL}}/icon-512.png",
@@ -44,6 +45,10 @@
         "email": "{{CONTACT_EMAIL}}",
         "telephone": "+48570080490",
         "areaServed": { "@type": "City", "name": "Kraków" },
+        "location": [
+          { "@type": "Place", "name": "Błonia / Park Jordana", "address": { "@type": "PostalAddress", "addressLocality": "Kraków", "addressCountry": "PL" } }
+        ],
+        "knowsAbout": ["bieganie", "technika biegu", "trening biegowy dla kobiet", "obozy biegowe"],
         "sameAs": [
           "https://www.facebook.com/obozy.dla.kobiet",
           "https://www.instagram.com/obozysportowe.dlakobiet/"
@@ -71,7 +76,25 @@
         "serviceType": "Indywidualny trening biegowy",
         "description": "Wywiad i testy, plan treningowy (biegowy i/lub motoryczny), praca nad techniką biegu.",
         "provider": { "@id": "{{SITE_URL}}/#organization" },
-        "areaServed": { "@type": "City", "name": "Kraków" }
+        "areaServed": { "@type": "City", "name": "Kraków" },
+        "url": "{{SITE_URL}}/oferta/#indywidualnie"
+      },
+      {
+        "@type": "Service",
+        "name": "Grupa biegowa dla kobiet Rozbiegane",
+        "serviceType": "Treningi biegowe w grupie",
+        "description": "Kameralna grupa (do 10 osób), poniedziałki o 19:00 na Błoniach / w Parku Jordana.",
+        "provider": { "@id": "{{SITE_URL}}/#organization" },
+        "areaServed": { "@type": "City", "name": "Kraków" },
+        "url": "{{SITE_URL}}/oferta/#grupa",
+        "offers": { "@type": "Offer", "price": "80", "priceCurrency": "PLN" }
+      },
+      {
+        "@type": "Service",
+        "name": "Obozy biegowe dla kobiet",
+        "serviceType": "Obóz biegowy",
+        "provider": { "@id": "{{SITE_URL}}/#organization" },
+        "url": "{{SITE_URL}}/obozy/"
       }
     ]
   }
@@ -85,6 +108,21 @@
         "@type": "Question",
         "name": "Czy dołączenie do grupy biegowej wymaga jakiegoś poziomu zaawansowania?",
         "acceptedAnswer": { "@type": "Answer", "text": "Nie. Nasza grupa jest dla kobiet na różnych etapach przygody z bieganiem. Dostosowuję tempo i ćwiczenia tak, żebyś czuła się komfortowo. Ważne jest to, że chcesz się ruszać – resztą zajmiemy się razem." }
+      },
+      {
+        "@type": "Question",
+        "name": "Gdzie i kiedy trenuje grupa biegowa dla kobiet w Krakowie?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Grupa Rozbiegane spotyka się w każdy poniedziałek o 19:00 na Błoniach / w Parku Jordana. To kameralna grupa – do 10 osób." }
+      },
+      {
+        "@type": "Question",
+        "name": "Ile kosztują treningi w grupie Rozbiegane?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Grupa Rozbiegane (trening 1× w tygodniu, stały kontakt z grupą i trenerkami, porady biegowe) kosztuje 80 zł. Wersja z indywidualnym planem treningowym kosztuje 300 zł. Pełny cennik, także treningów 1:1, jest w zakładce Oferta." }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy są darmowe treningi biegowe dla kobiet w Krakowie?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tak. Prowadzimy otwarte, bezpłatne treningi biegowe dla kobiet w Krakowie. Terminy i miejsca zbiórek ogłaszamy w aktualnościach." }
       },
       {
         "@type": "Question",
@@ -160,6 +198,12 @@
           <p>Potrzebujesz wsparcia treningowego? A może chcesz popracować nad techniką biegu lub skorzystać z planu treningowego? Napisz do mnie, a wspólnie ustalimy rodzaj współpracy i cele spotkań.</p>
           <a class="text-link" href="oferta/#indywidualnie">Zobacz cennik <span aria-hidden="true">→</span></a>
         </article>
+        <article class="offer offer-wide">
+          <p class="tag">Wyjazdy</p>
+          <h3>Obozy biegowe dla kobiet</h3>
+          <p>Weekendowe wyjazdy tylko dla kobiet: treningi w grupie początkującej i zaawansowanej, technika biegu, nordic walking, sprawność, a po wysiłku basen i regeneracja.</p>
+          <a class="text-link" href="obozy/">Poznaj obozy <span aria-hidden="true">→</span></a>
+        </article>
       </div>
     </section>
 
@@ -169,7 +213,7 @@
         <figure class="photo"><img src="{{ROOT}}img/img-3210-sm.jpg" srcset="{{ROOT}}img/img-3210-sm.jpg 720w, {{ROOT}}img/img-3210.jpg 1400w" sizes="(min-width: 900px) 25vw, 50vw" width="1400" height="1050" alt="Grupa kobiet podczas ćwiczeń na bieżni" loading="lazy" decoding="async"></figure>
         <figure class="photo"><img src="{{ROOT}}img/a7400349-sm.jpg" srcset="{{ROOT}}img/a7400349-sm.jpg 480w, {{ROOT}}img/a7400349.jpg 933w" sizes="(min-width: 900px) 25vw, 50vw" width="933" height="1400" alt="Magdalena Kunc, trenerka Rozbieganych" loading="lazy" decoding="async"></figure>
       </div>
-      <p class="note"><a href="galeria/">Zobacz więcej zdjęć w galerii</a> albo poznaj <a href="o-nas/">naszą trenerkę</a>.</p>
+      <p class="note"><a href="galeria/">Zobacz więcej zdjęć w galerii</a>, sprawdź <a href="obozy/">obozy biegowe dla kobiet</a> albo poznaj <a href="o-nas/">naszą trenerkę</a>.</p>
     </section>
 
     <section id="jak-dolaczyc" class="section">
@@ -241,6 +285,18 @@
         <details>
           <summary>Czy dołączenie do grupy biegowej wymaga jakiegoś poziomu zaawansowania?</summary>
           <p>Nie. Nasza grupa jest dla kobiet na różnych etapach przygody z bieganiem. Dostosowuję tempo i ćwiczenia tak, żebyś czuła się komfortowo. Ważne jest to, że chcesz się ruszać – resztą zajmiemy się razem.</p>
+        </details>
+        <details>
+          <summary>Gdzie i kiedy trenuje grupa biegowa dla kobiet w Krakowie?</summary>
+          <p>Grupa Rozbiegane spotyka się w każdy poniedziałek o 19:00 na Błoniach / w Parku Jordana. To kameralna grupa – do 10 osób.</p>
+        </details>
+        <details>
+          <summary>Ile kosztują treningi w grupie Rozbiegane?</summary>
+          <p>Grupa Rozbiegane (trening 1× w tygodniu, stały kontakt z grupą i trenerkami, porady biegowe) kosztuje 80 zł. Wersja z indywidualnym planem treningowym kosztuje 300 zł. Pełny cennik, także treningów 1:1, jest w zakładce <a href="oferta/">Oferta</a>.</p>
+        </details>
+        <details>
+          <summary>Czy są darmowe treningi biegowe dla kobiet w Krakowie?</summary>
+          <p>Tak. Prowadzimy otwarte, bezpłatne treningi biegowe dla kobiet w Krakowie. Terminy i miejsca zbiórek ogłaszamy w <a href="blog/">aktualnościach</a>.</p>
         </details>
         <details>
           <summary>Co zabrać na pierwszy trening?</summary>

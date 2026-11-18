@@ -49,6 +49,16 @@
           { "@type": "ListItem", "position": 1, "name": "{{BRAND}}", "item": "{{SITE_URL}}/" },
           { "@type": "ListItem", "position": 2, "name": "Oferta", "item": "{{PAGE_URL}}" }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Ile kosztują treningi biegowe dla kobiet w Krakowie?", "acceptedAnswer": { "@type": "Answer", "text": "W grupie Rozbiegane: 80 zł (trening 1× w tygodniu, kontakt z grupą i trenerkami, porady biegowe) albo 300 zł z indywidualnym planem treningowym. Treningi 1:1: konsultacja 250 zł, pakiet 4 treningów 600 zł, pakiet 8 treningów 1100 zł." } },
+          { "@type": "Question", "name": "Gdzie i kiedy trenuje grupa Rozbiegane?", "acceptedAnswer": { "@type": "Answer", "text": "W każdy poniedziałek o 19:00 na Błoniach / w Parku Jordana w Krakowie. Grupa liczy do 10 osób." } },
+          { "@type": "Question", "name": "Czy mogę najpierw przyjść na trening próbny?", "acceptedAnswer": { "@type": "Answer", "text": "Tak. Możesz wziąć udział w treningu próbnym lub otwartym i dopiero wtedy zdecydować, czy dołączasz do grupy. Terminy treningów otwartych ogłaszamy w aktualnościach." } },
+          { "@type": "Question", "name": "Czym różni się grupa od treningów indywidualnych?", "acceptedAnswer": { "@type": "Answer", "text": "W grupie trenujesz raz w tygodniu z innymi kobietami, w kameralnym gronie do 10 osób. Współpraca 1:1 zaczyna się od konsultacji z wywiadem i wideoanalizą biegu, a treningi i plan są ułożone tylko pod Twoje cele." } },
+          { "@type": "Question", "name": "Kiedy mogę wykupić sam plan treningowy?", "acceptedAnswer": { "@type": "Answer", "text": "Plan treningowy można wykupić po zrealizowaniu pakietu treningów indywidualnych. Każdy plan zawiera stały kontakt z trenerką." } }
+        ]
       }
     ]
   }
@@ -60,8 +70,8 @@
     <section class="page-hero split">
       <div>
         <p class="eyebrow">Oferta</p>
-        <h1>Wybierz najlepszą opcję dla siebie</h1>
-        <p class="lead">Oferujemy treningi grupowe dla kobiet oraz współpracę indywidualną na terenie Krakowa.</p>
+        <h1>Treningi biegowe dla kobiet w Krakowie – oferta i cennik</h1>
+        <p class="lead">Wybierz najlepszą opcję dla siebie: treningi w kameralnej grupie kobiet albo współpracę indywidualną z trenerką na terenie Krakowa. Myślisz o wyjeździe? Zobacz <a href="../obozy/">obozy biegowe dla kobiet</a>.</p>
         <div class="actions">
           <a class="btn" href="#grupa">Treningi grupowe</a>
           <a class="btn btn-ghost" href="#indywidualnie">Treningi indywidualne</a>
@@ -152,6 +162,36 @@
       <div class="actions">
         <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScEK2nptPY66dHU4ljHX5-CEmNGOeTJwvHlYbsvnaj_aU3tqA/viewform" rel="noopener">Chcę dowiedzieć się więcej!</a>
         <a class="btn btn-ghost" href="../kontakt/">Kontakt</a>
+      </div>
+    </section>
+
+    <!-- Every <summary> here must match a Question "name" in the FAQPage JSON-LD above. -->
+    <section id="faq" class="section faq">
+      <header class="section-head">
+        <p class="eyebrow">FAQ</p>
+        <h2>Pytania o treningi i ceny</h2>
+      </header>
+      <div class="faq-list">
+        <details>
+          <summary>Ile kosztują treningi biegowe dla kobiet w Krakowie?</summary>
+          <p>W grupie Rozbiegane: 80 zł (trening 1× w tygodniu, kontakt z grupą i trenerkami, porady biegowe) albo 300 zł z indywidualnym planem treningowym. Treningi 1:1: konsultacja 250 zł, pakiet 4 treningów 600 zł, pakiet 8 treningów 1100 zł.</p>
+        </details>
+        <details>
+          <summary>Gdzie i kiedy trenuje grupa Rozbiegane?</summary>
+          <p>W każdy poniedziałek o 19:00 na Błoniach / w Parku Jordana w Krakowie. Grupa liczy do 10 osób.</p>
+        </details>
+        <details>
+          <summary>Czy mogę najpierw przyjść na trening próbny?</summary>
+          <p>Tak. Możesz wziąć udział w treningu próbnym lub otwartym i dopiero wtedy zdecydować, czy dołączasz do grupy. Terminy treningów otwartych ogłaszamy w <a href="../blog/">aktualnościach</a>.</p>
+        </details>
+        <details>
+          <summary>Czym różni się grupa od treningów indywidualnych?</summary>
+          <p>W grupie trenujesz raz w tygodniu z innymi kobietami, w kameralnym gronie do 10 osób. Współpraca 1:1 zaczyna się od konsultacji z wywiadem i wideoanalizą biegu, a treningi i plan są ułożone tylko pod Twoje cele.</p>
+        </details>
+        <details>
+          <summary>Kiedy mogę wykupić sam plan treningowy?</summary>
+          <p>Plan treningowy można wykupić po zrealizowaniu pakietu treningów indywidualnych. Każdy plan zawiera stały kontakt z trenerką.</p>
+        </details>
       </div>
     </section>
   </main>
