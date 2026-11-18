@@ -1,10 +1,13 @@
-<!-- @subject {{BRAND}}: new enquiry{{#name}} from {{name}}{{/name}} -->
-<h2>New enquiry from the website</h2>
-<p>Reply to this email to answer {{#name}}{{name}}{{/name}}{{^name}}the sender{{/name}} directly.</p>
-<table role="presentation" cellpadding="0" cellspacing="0">
-  <tr><td class="label">Name</td><td>{{#name}}{{name}}{{/name}}{{^name}}(not given){{/name}}</td></tr>
-  <tr><td class="label">Email</td><td><a href="mailto:{{email}}">{{email}}</a></td></tr>
-  <tr><td class="label">Date</td><td>{{date}}</td></tr>
-  <tr><td class="label">Page</td><td>{{page}}</td></tr>
+<!-- @subject {{BRAND}}: nowa wiadomość{{#name}} od {{name}}{{/name}} -->
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">{{#message}}{{message}}{{/message}}{{^message}}Nowa wiadomość z formularza na stronie.{{/message}}</div>
+<p style="margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:{{DARK_ACCENT}};">Formularz kontaktowy</p>
+<h2 style="margin:0 0 8px;font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-0.02em;color:{{DARK_TEXT}};">Nowa wiadomość{{#name}} od {{name}}{{/name}}</h2>
+<p style="margin:0 0 24px;color:{{DARK_MUTED}};">Kliknij „Odpowiedz”, a Twoja odpowiedź trafi prosto do nadawczyni.</p>
+<div style="margin:0 0 24px;padding:20px 22px;background:{{DARK_BG}};border-left:3px solid {{DARK_ACCENT}};border-radius:12px;color:{{DARK_TEXT}};white-space:pre-wrap;">{{#message}}{{message}}{{/message}}{{^message}}(brak treści){{/message}}</div>
+<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 28px;font:inherit;color:{{DARK_TEXT}};">
+  <tr><td style="padding:4px 20px 4px 0;vertical-align:top;color:{{DARK_MUTED}};">Imię</td><td style="padding:4px 0;vertical-align:top;">{{#name}}{{name}}{{/name}}{{^name}}(nie podano){{/name}}</td></tr>
+  <tr><td style="padding:4px 20px 4px 0;vertical-align:top;color:{{DARK_MUTED}};">E-mail</td><td style="padding:4px 0;vertical-align:top;"><a href="mailto:{{email}}" style="color:{{DARK_ACCENT}};">{{email}}</a></td></tr>
+  <tr><td style="padding:4px 20px 4px 0;vertical-align:top;color:{{DARK_MUTED}};">Data</td><td style="padding:4px 0;vertical-align:top;">{{date}}</td></tr>
+  <tr><td style="padding:4px 20px 4px 0;vertical-align:top;color:{{DARK_MUTED}};">Strona</td><td style="padding:4px 0;vertical-align:top;">{{page}}</td></tr>
 </table>
-<div class="card">{{#message}}{{message}}{{/message}}{{^message}}(no message){{/message}}</div>
+<p style="margin:0;"><a href="mailto:{{email}}" style="display:inline-block;background:{{DARK_ACCENT}};color:{{DARK_ACCENT_TEXT}};padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;">Odpowiedz</a></p>

@@ -67,6 +67,9 @@
           <p class="eyebrow">Pytania?</p>
           <h2>Napisz do nas</h2>
           <p>Jesteśmy tu, by pomóc! Razem znajdziemy odpowiedzi i zaplanujemy Twoją biegową przygodę.</p>
+          <!-- @if FORM_ENDPOINT -->
+          <p><a class="btn" href="#formularz">Napisz przez formularz</a></p>
+          <!-- @endif -->
         </div>
         <ul class="contact-list">
           <li><span class="contact-label">Telefon / WhatsApp</span><a href="tel:+48570080490">+48&nbsp;570&nbsp;080&nbsp;490</a></li>
@@ -81,14 +84,15 @@
       <header class="section-head">
         <p class="eyebrow">Formularz</p>
         <h2>Wyślij wiadomość</h2>
+        <p>Masz pytanie o treningi, grupę albo obóz? Napisz – odpowiemy Ci e-mailem.</p>
       </header>
       <form id="lead-form" action="{{FORM_ENDPOINT}}" method="post"
             data-msg-sending="Wysyłanie…"
-            data-msg-success="Dziękujemy! Odezwiemy się wkrótce."
-            data-msg-error="Coś poszło nie tak. Spróbuj ponownie albo napisz e-mail.">
-        <label>Imię i nazwisko <input type="text" name="name" autocomplete="name" required></label>
-        <label>Adres e-mail <input type="email" name="email" required autocomplete="email"></label>
-        <label class="full">Wiadomość <textarea name="message" rows="5"></textarea></label>
+            data-msg-success="Dziękujemy! Wiadomość dotarła – odezwiemy się wkrótce."
+            data-msg-error="Coś poszło nie tak. Spróbuj ponownie albo napisz na {{CONTACT_EMAIL}}.">
+        <label>Imię <input type="text" name="name" autocomplete="given-name" maxlength="100" required></label>
+        <label>Adres e-mail <input type="email" name="email" autocomplete="email" maxlength="254" required></label>
+        <label class="full">Wiadomość <textarea name="message" rows="5" maxlength="5000" required></textarea></label>
         <input type="hidden" name="_subject" value="Nowa wiadomość ze strony {{BRAND}}">
         <input type="hidden" name="page" value="{{PAGE_URL}}">
         <!-- @if TURNSTILE_SITE_KEY -->
@@ -98,7 +102,7 @@
         <input type="hidden" name="access_key" value="{{FORM_ACCESS_KEY}}">
         <!-- @endif -->
         <label class="hp" aria-hidden="true">Zostaw puste <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
-        <button class="btn" type="submit">Wyślij</button>
+        <button class="btn" type="submit">Wyślij wiadomość</button>
         <p class="form-note">Twoje dane wykorzystamy tylko do odpowiedzi. Zobacz <a href="../privacy.html">politykę prywatności</a>.</p>
         <p id="form-status" role="status" aria-live="polite"></p>
       </form>

@@ -1,10 +1,10 @@
-{{#name}}Hi {{name}},{{/name}}{{^name}}Hello,{{/name}}
+{{#name}}Cześć {{name}}!{{/name}}{{^name}}Cześć!{{/name}}
 
-Thanks for your message. It reached us and a real person will read it.
+Dziękujemy, że do nas piszesz. Twoja wiadomość do nas dotarła i przeczyta ją trenerka, nie automat.
 
-We will get back to you by email. If anything is urgent, just reply to this email.
+Odpowiemy Ci e-mailem. Jeśli sprawa jest pilna, po prostu odpisz na tę wiadomość albo zadzwoń: +48 570 080 490.
 
-Best regards,
-{{BRAND}}
+Do zobaczenia na treningu!
+{{BRAND}} – od kobiet dla kobiet
 
-Visit our website: {{SITE_URL}}/
+Zajrzyj na naszą stronę: {{SITE_URL}}/
